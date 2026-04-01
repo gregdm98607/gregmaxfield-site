@@ -1,0 +1,123 @@
+---
+import Layout from '../layouts/Base.astro';
+---
+
+<Layout title="The Lund Covenant — Greg Maxfield" description="A novel of the American West. When Gill Lund returns to Castle Dale, Utah after his father's death, he intends to stay three days." image="/images/og-image.png">
+
+<!-- BOOK HERO -->
+<section class="book-page-hero">
+  <img
+    src="/images/tlc-cover-front.jpg"
+    alt="The Lund Covenant by Greg Maxfield"
+    width="320"
+    height="480"
+    transition:name="tlc-cover"
+    transition:animate="initial"
+  />
+  <h1>The Lund Covenant</h1>
+  <p class="subtitle">A Novel</p>
+  <p class="byline">by Greg Maxfield</p>
+  <div class="buy-buttons">
+    <a href="#" class="btn btn-primary">Pre-Order on Amazon</a>
+    <a href="#" class="btn btn-secondary">Order from Bookshop.org</a>
+  </div>
+</section>
+
+<!-- FULL BLURB -->
+<section class="book-page-blurb reveal">
+  <p>
+    When Gill Lund returns to Castle Dale, Utah after his father's death, he intends to stay three days.
+    Long enough to bury the man, settle the estate, and go back to the life he built on the other side
+    of twelve years and a lot of open country.
+  </p>
+  <p>The town has other plans.</p>
+  <p>
+    His father — quiet, stubborn, not a man who explained himself — had been driving into the desert
+    at odd hours, tending water caches hidden in the San Rafael Swell. Desert travelers in desperate need.
+    Small mercies, unmarked and unannounced. Until someone found them and destroyed them, methodically,
+    with bleach and a serrated blade.
+  </p>
+  <p>
+    The evidence leads somewhere no one in Castle Dale wants to look. And the more Gill asks, the more
+    he understands that his father's silence wasn't indifference — it was the posture of a man who had
+    already paid the cost of speaking plainly in a small town, and who kept doing the work anyway.
+  </p>
+  <p>
+    Gill is a photojournalist. He knows how to document things. What he doesn't know yet is whether
+    he's willing to be part of the story.
+  </p>
+</section>
+
+<!-- ABOUT THE BOOK -->
+<section class="book-page-about">
+  <div class="inner reveal">
+    <h2>About the Book</h2>
+    <p>
+      <em>The Lund Covenant</em> is a novel about moral inheritance — the obligations that place imposes,
+      the cost of bearing witness, and what changes when a man decides to stay. Set in the high desert of
+      Emery County, Utah, it follows a photojournalist's reckoning with a small Mormon community fracturing
+      under the weight of a secret that was never meant to surface.
+    </p>
+    <p>
+      Literary fiction with a suspense spine, <em>The Lund Covenant</em> belongs on the shelf next to
+      Kent Haruf's <em>Plainsong</em>, Ron Rash's <em>Serena</em>, Marilynne Robinson's <em>Gilead</em>,
+      and Paulette Jiles's <em>News of the World</em>.
+    </p>
+    <p style="color:var(--color-text-light); font-size:0.95rem; margin-top:1.5rem;">
+      ~82,000 words &middot; Paperback &amp; Ebook &middot; July 2026
+    </p>
+  </div>
+</section>
+
+<!-- ENDORSEMENTS (placeholder) -->
+<section class="endorsements reveal">
+  <h2>Praise</h2>
+  <div class="endorsement-slot">
+    <p>"Endorsement quote placeholder — to be populated from ARC reviews."</p>
+    <p><strong>— Reviewer Name, Source</strong></p>
+  </div>
+  <div class="endorsement-slot">
+    <p>"Endorsement quote placeholder — to be populated from ARC reviews."</p>
+    <p><strong>— Reviewer Name, Source</strong></p>
+  </div>
+  <div class="endorsement-slot">
+    <p>"Endorsement quote placeholder — to be populated from ARC reviews."</p>
+    <p><strong>— Reviewer Name, Source</strong></p>
+  </div>
+</section>
+
+<!-- REPEATED BUY LINKS -->
+<section style="text-align:center; padding:2rem 1.5rem 1rem;">
+  <div class="buy-buttons">
+    <a href="#" class="btn btn-primary">Pre-Order on Amazon</a>
+    <a href="#" class="btn btn-secondary">Order from Bookshop.org</a>
+    <a href="#" class="btn btn-ghost">Add on Goodreads</a>
+  </div>
+</section>
+
+<!-- NEWSLETTER CTA (matches homepage #subscribe) -->
+<section class="subscribe-section">
+  <div class="container content-narrow reveal" style="text-align:center;">
+    <h2>Get the First Three Chapters Free</h2>
+    <p>Sign up for launch updates and receive the opening chapters of <em>The Lund Covenant</em> — delivered to your inbox.</p>
+    <div class="email-embed-placeholder" style="padding:2rem; border:2px dashed rgba(250,248,245,0.3); border-radius:8px; margin-top:1.5rem;">
+      <p style="color:rgba(250,248,245,0.6); font-style:italic; margin:0;">ConvertKit signup form — coming soon</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  // U5: Scroll-reveal for book page
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -80px 0px' });
+  reveals.forEach(el => revealObserver.observe(el));
+</script>
+
+</Layout>

@@ -1,49 +1,181 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import Layout from '../layouts/Base.astro';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This template
-				serves as a lightweight, minimally-styled starting point for anyone looking to build a personal
-				website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+<Layout title="Greg Maxfield — Author" description="Literary fiction rooted in the American West. Home of The Lund Covenant.">
+
+<!-- HERO (W1: parallax desert backdrop) -->
+<section id="hero" class="hero">
+  <div class="hero-backdrop"></div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <h1>Greg Maxfield</h1>
+      <p class="hero-tagline">Literary fiction rooted in the landscape, history, and moral tensions of the American West.</p>
+      <div class="hero-cta">
+        <a href="/the-lund-covenant" class="btn btn-primary">Discover The Lund Covenant</a>
+        <a href="https://theunfoldingplot.substack.com" class="btn btn-secondary" target="_blank" rel="noopener">Read on Substack</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img
+        src="/images/tlc-cover-hero.jpg"
+        alt="The Lund Covenant — book cover"
+        width="360"
+        height="540"
+        transition:name="tlc-cover"
+      />
+    </div>
+  </div>
+</section>
+
+<!-- THE BOOK -->
+<section id="the-book" class="book-section">
+  <div class="container reveal">
+    <div class="book-layout">
+      <div class="book-cover">
+        <img src="/images/tlc-cover-front.jpg" alt="The Lund Covenant by Greg Maxfield" width="320" height="480" />
+      </div>
+      <div class="book-details">
+        <h2>The Lund Covenant</h2>
+        <p class="book-genre">Literary Fiction &middot; July 2026</p>
+        <p class="book-blurb">
+          A photojournalist returns to the small Utah town he left behind — and finds it tangled in a crisis
+          that forces him to choose between the comfortable silence of home and the cost of seeing clearly.
+        </p>
+        <p class="book-blurb">
+          <em>The Lund Covenant</em> is a novel about complicity, memory, and what it means to bear witness
+          in a place that would rather you didn't.
+        </p>
+        <p class="book-comps"><strong>For readers of:</strong> Kent Haruf, Marilynne Robinson, Denis Johnson</p>
+        <div class="book-cta">
+          <a href="/the-lund-covenant" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="projects-section">
+  <div class="container">
+    <h2 style="text-align:center;" class="reveal">More From Greg</h2>
+    <div class="projects-grid">
+      <div class="project-card reveal">
+        <h3>Operation Granny Files</h3>
+        <p>A family history project that turns genealogy into story — real ancestors, real documents, real narrative. Two thousand readers and counting.</p>
+        <a href="https://operationgrannyfiles.substack.com" class="btn btn-ghost" target="_blank" rel="noopener">Visit OGF &rarr;</a>
+      </div>
+      <div class="project-card reveal">
+        <h3>Conduital</h3>
+        <p>A personal productivity system for connecting what you know to what you're building — notes, projects, and actions in one flow.</p>
+        <a href="https://conduital.com" class="btn btn-ghost" target="_blank" rel="noopener">Visit Conduital &rarr;</a>
+      </div>
+      <div class="project-card reveal">
+        <h3>The Unfolding Plot</h3>
+        <p><em>The Lund Covenant</em>, serialized chapter by chapter on Substack — read the novel as it unfolds.</p>
+        <a href="https://theunfoldingplot.substack.com" class="btn btn-ghost" target="_blank" rel="noopener">Read on Substack &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT THE AUTHOR -->
+<section id="about" class="about-section">
+  <div class="container content-narrow reveal">
+    <h2>About the Author</h2>
+    <div class="about-layout">
+      <div class="about-photo">
+        <img src="/images/greg-headshot.jpg" alt="Greg Maxfield" width="160" height="160" />
+      </div>
+      <div class="about-text">
+        <p>
+          Greg Maxfield writes literary fiction set in the landscapes and communities of the American West.
+          His work explores the intersections of family obligation, cultural memory, and moral reckoning
+          in places where history isn't past — it's the ground you're standing on.
+        </p>
+        <p>
+          A native of Emery County, Utah, he spent three decades in the energy industry before turning
+          full-time to writing. He lives in the Pacific Northwest, where he also runs
+          <a href="https://operationgrannyfiles.substack.com" target="_blank" rel="noopener">Operation Granny Files</a>
+          and builds productivity tools at
+          <a href="https://conduital.com" target="_blank" rel="noopener">Conduital</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER SIGNUP (U3: placeholder until ConvertKit) -->
+<section id="subscribe" class="subscribe-section">
+  <div class="container content-narrow reveal" style="text-align:center;">
+    <h2>Follow the Story</h2>
+    <p>Get the first three chapters of <em>The Lund Covenant</em> free, plus launch updates and behind-the-scenes notes on the writing process. No spam. Unsubscribe anytime.</p>
+    <!-- Replace this div with your ConvertKit embed code once signed up -->
+    <div class="email-embed-placeholder" style="padding:2rem; border:2px dashed rgba(250,248,245,0.3); border-radius:8px; margin-top:1.5rem;">
+      <p style="color:rgba(250,248,245,0.6); font-style:italic; margin:0;">ConvertKit signup form — coming soon</p>
+    </div>
+    <p style="margin-top:1.5rem; font-size:0.9rem;">
+      Already reading? Find Greg on Substack:<br/>
+      <a href="https://theunfoldingplot.substack.com" target="_blank" rel="noopener" style="color:var(--color-accent);">The Unfolding Plot</a> &middot;
+      <a href="https://operationgrannyfiles.substack.com" target="_blank" rel="noopener" style="color:var(--color-accent);">Operation Granny Files</a>
+    </p>
+  </div>
+</section>
+
+<style>
+  /* W1: Parallax hero backdrop — Greg to supply landscape photo */
+  .hero {
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-backdrop {
+    position: absolute;
+    inset: 0;
+    /* Placeholder gradient until a real desert landscape photo is added.
+       Replace background-image with: url('/images/hero-landscape.jpg')
+       once Greg provides or generates a San Rafael Swell panorama. */
+    background:
+      linear-gradient(to right, rgba(250,248,245,0.95), rgba(250,248,245,0.6)),
+      linear-gradient(135deg, #E8D5C4 0%, #D4B896 40%, #C4A882 70%, #B89B7A 100%);
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+  }
+  .hero-inner {
+    position: relative;
+    z-index: 1;
+  }
+</style>
+
+<script>
+  // U1: Intersection Observer for active-section highlighting
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a[href^="/#"]');
+
+  const sectionObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach(link => {
+          const href = link.getAttribute('href');
+          link.classList.toggle('active', href === '/#' + id || href === '#' + id);
+        });
+      }
+    });
+  }, { rootMargin: '-40% 0px -60% 0px' });
+
+  sections.forEach(section => sectionObserver.observe(section));
+
+  // U5: Scroll-reveal animations
+  const reveals = document.querySelectorAll('.reveal');
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { rootMargin: '0px 0px -80px 0px' });
+
+  reveals.forEach(el => revealObserver.observe(el));
+</script>

@@ -9,7 +9,9 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "generate:images": "python scripts/generate_featured_images.py",
+    "generate:images:dry": "python scripts/generate_featured_images.py --dry-run"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.3",

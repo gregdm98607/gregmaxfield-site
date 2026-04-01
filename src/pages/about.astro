@@ -1,63 +1,43 @@
 ---
-import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
-import Layout from '../layouts/BlogPost.astro';
+import Layout from '../layouts/Base.astro';
 ---
 
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage={AboutHeroImage}
->
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
+<Layout title="About — Greg Maxfield" description="About Greg Maxfield — literary fiction author from the American West.">
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
+<section class="about-section" style="padding-top:3rem;">
+  <div class="container content-narrow">
+    <div class="about-layout" style="gap:2.5rem;">
+      <div class="about-photo">
+        <img src="/images/greg-headshot.jpg" alt="Greg Maxfield" width="200" height="200" style="width:200px;height:200px;" />
+      </div>
+      <div class="about-text">
+        <h1>About Greg</h1>
+        <p>
+          Greg Maxfield is a native of Emery County, Utah, where the desert teaches patience and the land
+          holds memory. A native of the American West, he spent three decades in the energy industry before
+          turning full-time to writing.
+        </p>
+        <p>
+          He studied the history and geography of the American Southwest, has volunteered with Native American
+          elders, and believes that place leaves something permanent in us — a mark we carry long after
+          we've left. He lives in the Pacific Northwest and writes about the landscapes that shaped him.
+        </p>
+        <p>
+          His work explores the intersections of family obligation, cultural memory, and moral reckoning
+          in places where history isn't past — it's the ground you're standing on. His debut novel,
+          <a href="/the-lund-covenant"><em>The Lund Covenant</em></a>, arrives in July 2026.
+        </p>
+        <h3 style="margin-top:2rem;">Elsewhere</h3>
+        <p>
+          Greg runs <a href="https://operationgrannyfiles.substack.com" target="_blank" rel="noopener">Operation Granny Files</a>,
+          a family history project that turns genealogy into story, and builds productivity tools at
+          <a href="https://conduital.com" target="_blank" rel="noopener">Conduital</a>. He serializes
+          <em>The Lund Covenant</em> chapter by chapter on
+          <a href="https://theunfoldingplot.substack.com" target="_blank" rel="noopener">The Unfolding Plot</a>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
-
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
-
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
 </Layout>
