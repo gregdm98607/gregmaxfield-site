@@ -1,0 +1,102 @@
+---
+import Layout from '../layouts/Base.astro';
+---
+
+<Layout title="Read Chapter 1 — The Lund Covenant" description="Read the opening chapter of The Lund Covenant by Greg Maxfield. A novel of the American West." image="/images/og-image.png">
+
+<!-- SNEAK PEEK HEADER -->
+<section class="peek-header">
+  <p class="peek-label">Sneak Peek</p>
+  <h1>The Lund Covenant</h1>
+  <p class="peek-subtitle">Chapter One</p>
+</section>
+
+<!-- CHAPTER TEXT -->
+<article class="peek-reading">
+  <!-- 
+    TODO: Insert polished Chapter 1 text here.
+    Prerequisite: Run Ch1 through line-polish pipeline
+    (fixes essayistic lift-out line 3, "from from" typo line 7).
+    Source: TLC manuscript, polished Ch1 markdown.
+  -->
+  <p class="placeholder-note" style="color:var(--color-text-light); font-style:italic; text-align:center; padding:3rem 1rem;">
+    Chapter 1 content will be placed here once the line-polish pass is complete.
+  </p>
+</article>
+
+<!-- KEEP READING CTA -->
+<section class="peek-cta">
+  <h2>Keep Reading</h2>
+  <p>Liked what you read? <em>The Lund Covenant</em> arrives July 2026.</p>
+  <div class="buy-buttons">
+    <a href="#" class="btn btn-primary">Pre-Order on Amazon</a>
+    <a href="#" class="btn btn-secondary">Order from Bookshop.org</a>
+  </div>
+  <div class="peek-email-offer">
+    <p>— or get the first three chapters free —</p>
+    <div class="email-embed-placeholder" style="padding:1.5rem; border:2px dashed rgba(250,248,245,0.3); border-radius:8px; margin-top:1rem;">
+      <p style="color:rgba(250,248,245,0.6); font-style:italic; margin:0;">ConvertKit signup form — coming soon</p>
+    </div>
+  </div>
+</section>
+
+<style>
+  .peek-header {
+    text-align: center;
+    padding: 3rem 1.5rem 1.5rem;
+  }
+  .peek-label {
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    font-size: 0.85rem;
+    color: var(--color-text-light);
+    margin-bottom: 0.5rem;
+  }
+  .peek-header h1 {
+    font-family: var(--font-serif, Georgia, 'Times New Roman', serif);
+    font-size: 2.2rem;
+    margin: 0;
+  }
+  .peek-subtitle {
+    font-style: italic;
+    color: var(--color-text-light);
+    margin-top: 0.5rem;
+  }
+</style>
+
+<style>
+  .peek-reading {
+    max-width: 38em;
+    margin: 0 auto;
+    padding: 2rem 1.5rem 3rem;
+    font-family: var(--font-serif, Georgia, 'Times New Roman', serif);
+    font-size: 1.1rem;
+    line-height: 1.75;
+    color: var(--color-text);
+  }
+  .peek-reading p {
+    margin-bottom: 1.2em;
+    text-indent: 1.5em;
+  }
+  .peek-reading p:first-of-type {
+    text-indent: 0;
+  }
+  .peek-cta {
+    text-align: center;
+    padding: 2rem 1.5rem 3rem;
+    border-top: 1px solid rgba(250,248,245,0.15);
+  }
+  .peek-cta h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .peek-email-offer {
+    margin-top: 2rem;
+  }
+  .peek-email-offer p {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+  }
+</style>
+
+</Layout>
