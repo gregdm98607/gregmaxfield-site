@@ -27,7 +27,6 @@ import Layout from '../layouts/Base.astro';
     </div>
   </div>
 </section>
-
 <!-- THE BOOK -->
 <section id="the-book" class="book-section">
   <div class="container reveal">
@@ -54,7 +53,6 @@ import Layout from '../layouts/Base.astro';
     </div>
   </div>
 </section>
-
 <!-- PROJECTS -->
 <section id="projects" class="projects-section">
   <div class="container">
@@ -78,7 +76,6 @@ import Layout from '../layouts/Base.astro';
     </div>
   </div>
 </section>
-
 <!-- ABOUT THE AUTHOR -->
 <section id="about" class="about-section">
   <div class="container content-narrow reveal">
@@ -104,16 +101,44 @@ import Layout from '../layouts/Base.astro';
     </div>
   </div>
 </section>
-
-<!-- NEWSLETTER SIGNUP (U3: placeholder until ConvertKit) -->
+<!-- NEWSLETTER SIGNUP -->
 <section id="subscribe" class="subscribe-section">
   <div class="container content-narrow reveal" style="text-align:center;">
     <h2>Follow the Story</h2>
-    <p>Get the first three chapters of <em>The Lund Covenant</em> free, plus launch updates and behind-the-scenes notes on the writing process. No spam. Unsubscribe anytime.</p>
-    <!-- Replace this div with your ConvertKit embed code once signed up -->
-    <div class="email-embed-placeholder" style="padding:2rem; border:2px dashed rgba(250,248,245,0.3); border-radius:8px; margin-top:1.5rem;">
-      <p style="color:rgba(250,248,245,0.6); font-style:italic; margin:0;">ConvertKit signup form — coming soon</p>
+    <p>Get launch updates, early access, and behind-the-scenes notes on the writing process. No spam. Unsubscribe anytime.</p>
+
+    <form id="kit-signup-form" class="kit-form" aria-label="Newsletter signup">
+      <div class="kit-form-fields">
+        <input
+          type="text"
+          name="first_name"
+          placeholder="First name"
+          class="kit-input"
+          autocomplete="given-name"
+        />
+        <input
+          type="email"
+          name="email"
+          placeholder="Email address"
+          class="kit-input"
+          required
+          autocomplete="email"
+        />
+        <button type="submit" class="btn btn-primary kit-submit">
+          <span class="kit-submit-text">Subscribe</span>
+          <span class="kit-submit-loading" style="display:none;">Subscribing…</span>
+        </button>
+      </div>
+      <p class="kit-form-note">Join the mailing list for <em>The Lund Covenant</em> launch updates and more.</p>
+    </form>
+    <div id="kit-success" class="kit-message kit-success" style="display:none;">
+      <p><strong>You're in.</strong> Check your inbox for a confirmation email. Welcome aboard.</p>
     </div>
+
+    <div id="kit-error" class="kit-message kit-error" style="display:none;">
+      <p>Something went wrong. Please try again, or email <a href="mailto:greg@gregmaxfield.com" style="color:var(--color-accent);">greg@gregmaxfield.com</a> directly.</p>
+    </div>
+
     <p style="margin-top:1.5rem; font-size:0.9rem;">
       Already reading? Find Greg on Substack:<br/>
       <a href="https://theunfoldingplot.substack.com" target="_blank" rel="noopener" style="color:var(--color-accent);">The Unfolding Plot</a> &middot;
@@ -121,9 +146,8 @@ import Layout from '../layouts/Base.astro';
     </p>
   </div>
 </section>
-
 <style>
-  /* W1: Parallax hero backdrop — Greg to supply landscape photo */
+  /* W1: Parallax hero backdrop */
   .hero {
     position: relative;
     overflow: hidden;
@@ -131,9 +155,6 @@ import Layout from '../layouts/Base.astro';
   .hero-backdrop {
     position: absolute;
     inset: 0;
-    /* Placeholder gradient until a real desert landscape photo is added.
-       Replace background-image with: url('/images/hero-landscape.jpg')
-       once Greg provides or generates a San Rafael Swell panorama. */
     background:
       linear-gradient(to right, rgba(250,248,245,0.95), rgba(250,248,245,0.6)),
       linear-gradient(135deg, #E8D5C4 0%, #D4B896 40%, #C4A882 70%, #B89B7A 100%);
@@ -145,8 +166,74 @@ import Layout from '../layouts/Base.astro';
     position: relative;
     z-index: 1;
   }
-</style>
 
+  /* Kit signup form */
+  .kit-form {
+    margin-top: 1.5rem;
+  }
+  .kit-form-fields {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    max-width: 560px;
+    margin: 0 auto;
+  }  .kit-input {
+    flex: 1;
+    min-width: 160px;
+    padding: 0.8rem 1.2rem;
+    border: 2px solid rgba(250,248,245,0.3);
+    border-radius: var(--radius);
+    background: rgba(250,248,245,0.1);
+    color: var(--color-bg);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    transition: border-color var(--transition), background var(--transition);
+  }
+  .kit-input::placeholder {
+    color: rgba(250,248,245,0.5);
+  }
+  .kit-input:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    background: rgba(250,248,245,0.15);
+  }
+  .kit-submit {
+    min-width: 140px;
+    white-space: nowrap;
+  }
+  .kit-form-note {
+    font-size: 0.85rem;
+    margin-top: 0.75rem;
+    color: rgba(250,248,245,0.6);
+  }  .kit-message {
+    margin-top: 1.5rem;
+    padding: 1.25rem 1.5rem;
+    border-radius: var(--radius);
+  }
+  .kit-success {
+    background: rgba(250,248,245,0.12);
+    border: 1px solid rgba(250,248,245,0.25);
+  }
+  .kit-error {
+    background: rgba(200,50,50,0.15);
+    border: 1px solid rgba(200,50,50,0.3);
+  }
+  .kit-message p {
+    margin: 0;
+    font-size: 1rem;
+  }
+
+  @media (max-width: 480px) {
+    .kit-form-fields {
+      flex-direction: column;
+    }
+    .kit-input, .kit-submit {
+      width: 100%;
+      min-width: auto;
+    }
+  }
+</style>
 <script>
   // U1: Intersection Observer for active-section highlighting
   const sections = document.querySelectorAll('section[id]');
@@ -178,4 +265,68 @@ import Layout from '../layouts/Base.astro';
   }, { rootMargin: '0px 0px -80px 0px' });
 
   reveals.forEach(el => revealObserver.observe(el));
+  // Kit newsletter signup
+  const KIT_API_KEY = '1DPMCQ3iN_j0o-HFQ_sRLA';
+  const TAG_GMA_NEWSLETTER = 18895877;
+  const TAG_TLC_LAUNCH = 18895878;
+
+  const form = document.getElementById('kit-signup-form');
+  const successEl = document.getElementById('kit-success');
+  const errorEl = document.getElementById('kit-error');
+
+  if (form) {
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const email = formData.get('email');
+      const firstName = formData.get('first_name');
+
+      if (!email) return;
+
+      // UI: show loading state
+      const submitText = form.querySelector('.kit-submit-text');
+      const submitLoading = form.querySelector('.kit-submit-loading');
+      const submitBtn = form.querySelector('.kit-submit');
+      if (submitText) submitText.style.display = 'none';
+      if (submitLoading) submitLoading.style.display = 'inline';
+      if (submitBtn) submitBtn.disabled = true;
+      successEl.style.display = 'none';
+      errorEl.style.display = 'none';
+      try {
+        // Subscribe to both tags in parallel
+        const body = JSON.stringify({
+          api_key: KIT_API_KEY,
+          email: email,
+          first_name: firstName || undefined,
+        });
+
+        const [res1, res2] = await Promise.all([
+          fetch(`https://api.convertkit.com/v3/tags/${TAG_GMA_NEWSLETTER}/subscribe`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: body,
+          }),
+          fetch(`https://api.convertkit.com/v3/tags/${TAG_TLC_LAUNCH}/subscribe`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: body,
+          }),
+        ]);
+
+        if (res1.ok) {
+          form.style.display = 'none';
+          successEl.style.display = 'block';
+        } else {
+          throw new Error('Subscription failed');
+        }
+      } catch (err) {
+        errorEl.style.display = 'block';
+      } finally {
+        if (submitText) submitText.style.display = 'inline';
+        if (submitLoading) submitLoading.style.display = 'none';
+        if (submitBtn) submitBtn.disabled = false;
+      }
+    });
+  }
 </script>
+</Layout>
