@@ -17,9 +17,10 @@ import Layout from '../layouts/Base.astro';
   <h1>The Lund Covenant</h1>
   <p class="subtitle">A Novel</p>
   <p class="byline">by Greg Maxfield</p>
+  <p class="release-badge" style="display:inline-block; margin:0.75rem 0 1rem; padding:0.4rem 1rem; border:1px solid rgba(0,0,0,0.15); border-radius:999px; font-size:0.95rem; letter-spacing:0.04em; text-transform:uppercase;">Coming June 30, 2026</p>
   <div class="buy-buttons">
-    <a href="#" class="btn btn-primary">Pre-Order on Amazon</a>
-    <a href="#" class="btn btn-secondary">Order from Bookshop.org</a>
+    <a href="#early-access" class="btn btn-primary">Join the Launch List</a>
+    <a href="#order" class="btn btn-secondary">Order Your Copy</a>
   </div>
 </section>
 
@@ -64,7 +65,7 @@ import Layout from '../layouts/Base.astro';
       and Paulette Jiles's <em>News of the World</em>.
     </p>
     <p style="color:var(--color-text-light); font-size:0.95rem; margin-top:1.5rem;">
-      ~82,000 words &middot; Paperback &amp; Ebook &middot; July 2026
+      ~82,000 words &middot; Hardcover &amp; Ebook &middot; June 30, 2026
     </p>
   </div>
 </section>
@@ -86,23 +87,42 @@ import Layout from '../layouts/Base.astro';
   </div>
 </section>
 
-<!-- REPEATED BUY LINKS -->
-<section style="text-align:center; padding:2rem 1.5rem 1rem;">
+<!-- ORDER YOUR COPY -->
+<section id="order" style="text-align:center; padding:2rem 1.5rem 1rem;">
+  <h2 style="margin-bottom:0.5rem;">Order Your Copy</h2>
+  <p style="color:var(--color-text-light); margin-bottom:1.25rem;">Available June 30, 2026.</p>
   <div class="buy-buttons">
-    <a href="#" class="btn btn-primary">Pre-Order on Amazon</a>
-    <a href="#" class="btn btn-secondary">Order from Bookshop.org</a>
-    <a href="#" class="btn btn-ghost">Add on Goodreads</a>
+    <!-- TODO replace href="#" with live listings when KDP / IngramSpark / Goodreads links are created -->
+    <a href="#" class="btn btn-primary" aria-disabled="true">Pre-Order on Amazon</a>
+    <a href="#" class="btn btn-secondary" aria-disabled="true">IngramSpark / Bookstores</a>
+    <a href="#" class="btn btn-ghost" aria-disabled="true">Add on Goodreads</a>
   </div>
 </section>
 
-<!-- NEWSLETTER CTA (matches homepage #subscribe) -->
-<section class="subscribe-section">
+<!-- EARLY ACCESS / LAUNCH LIST -->
+<section id="early-access" class="subscribe-section">
   <div class="container content-narrow reveal" style="text-align:center;">
-    <h2>Get the First Three Chapters Free</h2>
-    <p>Sign up for launch updates and receive the opening chapters of <em>The Lund Covenant</em> — delivered to your inbox.</p>
+    <h2>Get Early Access</h2>
+    <p>Join the launch list for <em>The Lund Covenant</em>. Receive the opening chapters in advance, plus cover reveal and pre-order news.</p>
     <div class="email-embed-placeholder" style="padding:2rem; border:2px dashed rgba(250,248,245,0.3); border-radius:8px; margin-top:1.5rem;">
-      <p style="color:rgba(250,248,245,0.6); font-style:italic; margin:0;">ConvertKit signup form — coming soon</p>
+      <!-- TODO swap with Kit/ConvertKit TLC segment form embed when form ID confirmed (Greg action) -->
+      <p style="color:rgba(250,248,245,0.6); font-style:italic; margin:0;">Email signup — Kit form embed pending. Until then, email gregmaxfield@gmail.com to be added manually.</p>
     </div>
+  </div>
+</section>
+
+<!-- AUTHOR BIO -->
+<section class="book-page-bio reveal" style="padding:3rem 1.5rem; text-align:center;">
+  <div class="container content-narrow">
+    <h2>About the Author</h2>
+    <p>
+      Greg Maxfield writes literary fiction grounded in the American West. He grew up around Castle Dale, Utah,
+      where his family helped settle the Emery County high desert, and his work returns again and again to
+      that country — its people, its silences, and the moral weight of place.
+    </p>
+    <p style="margin-top:1.5rem;">
+      <a href="/about" class="link-arrow">More from Greg Maxfield &rarr;</a>
+    </p>
   </div>
 </section>
 
