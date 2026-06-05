@@ -18,6 +18,6 @@ I wanted to write a novel that took the American West seriously — not as backd
 
 ## What's Next
 
-*The Lund Covenant* arrives in July 2026. You can follow the serialization chapter by chapter on [The Unfolding Plot](https://theunfoldingplot.substack.com), or sign up on the [homepage](/) to get the first three chapters free when they're ready.
+*The Lund Covenant* arrives June 30, 2026. You can follow the serialization chapter by chapter on [The Unfolding Plot](https://theunfoldingplot.substack.com), or sign up on the [homepage](/) to get the first three chapters free when they're ready.
 
 I'll be sharing more here about the writing process, the landscape that inspired the book, and the questions that kept me up at night while writing it. Thanks for reading.
