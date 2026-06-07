@@ -31,3 +31,17 @@
 - **F1** — ported working Kit form (markup + scoped CSS + submit script) into `#early-access`;
   hero CTA now resolves to a real capture. Noted B1 (page-load rebind) + R3 (3rd key copy) debt in-code.
 - `npm run build` ✓ clean (×2). Next: commit, merge to master, push.
+
+## Session 2026-06-06 — B1+B2 view-transitions fix
+
+- **B1**: All scripts now survive ClientRouter navigation via `astro:page-load`.
+  - Header.astro: wrapped in astro:page-load with AbortController for scroll listener.
+  - Base.astro: added unified reveal observer + unified Kit form handler (replaces 3 per-page copies).
+  - index.astro: trimmed to homepage-only section observer, wrapped in astro:page-load.
+  - books.astro + the-lund-covenant.astro: removed per-page reveal/Kit scripts entirely.
+  - Kit form handler uses `.kit-form` class selector (no ID collisions), `dataset.kitBound` guard.
+- **B2**: GA4 pageview tracking + subscribe conversion event.
+  - BaseHead.astro: added module script that fires `page_view` on every `astro:page-load` after the first.
+  - Unified Kit handler fires `window.gtag('event', 'sign_up', { method: 'Kit' })` on successful subscribe.
+- Side benefit: Kit form code deduplicated (3 copies → 1 in Base.astro). R3 debt annotated.
+- `npm run build` ✓ clean. Verified: `astro:page-load` in 10 files, Kit key in 7 (unified), GA4 events in 9.

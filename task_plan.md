@@ -25,8 +25,8 @@ Source: `…/Silver_Sage_Media/C-Suite/CTO/Site_Reviews/gregmaxfield-site_Review
 ### Bugs
 | ID | Item | Pri × Effort | Status | Key refs |
 |----|------|-------------|--------|----------|
-| B1 | Scripts don't survive client-side nav — rebind on `astro:page-load` (hamburger, Kit forms, reveals) | P1 × S | todo | Base.astro:20; Header.astro:117-139; index.astro:237-331; books.astro:319-383 |
-| B2 | GA4 loses pageviews under view transitions; no custom/subscribe events | P1 × XS | todo | BaseHead.astro:18-25 |
+| B1 | Scripts don't survive client-side nav — rebind on `astro:page-load` (hamburger, Kit forms, reveals) | P1 × S | ✅ done | Header, Base, index, books, tlc refactored |
+| B2 | GA4 loses pageviews under view transitions; no custom/subscribe events | P1 × XS | ✅ done | BaseHead nav tracking + sign_up event in unified Kit handler |
 | B3 | `@vercel/analytics` declared + disclosed on privacy page but never wired | P2 × XS | todo | package.json:24; privacy.astro:46-51 |
 | B4 | Placeholder endorsements live in production "Praise" section | P2 × XS | ✅ done | the-lund-covenant.astro (SHOW_PRAISE) |
 | B5 | Format/date inconsistencies (Hardcover→Paperback; July→June 30) | P2 × XS | ✅ done | book page, index, llms.txt, about, blog |
