@@ -158,19 +158,7 @@ const SHOW_PRAISE = false;
   </div>
 </section>
 
-<script>
-  // U5: Scroll-reveal for book page
-  const reveals = document.querySelectorAll('.reveal');
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { rootMargin: '0px 0px -80px 0px' });
-  reveals.forEach(el => revealObserver.observe(el));
-</script>
+<!-- Reveal + Kit form handlers now live in Base.astro (B1 fix). -->
 
 <style>
   /* Kit signup form — ported from homepage pattern (CTO review F1). Styled for dark subscribe-section. */
@@ -227,72 +215,5 @@ const SHOW_PRAISE = false;
   }
 </style>
 
-<script>
-  // Kit newsletter signup — launch list (ported from homepage; CTO review F1).
-  // NOTE (CTO review B1): this inline module runs once and will NOT rebind after a
-  //   ClientRouter navigation until the global astro:page-load fix lands.
-  // NOTE (CTO review R3): third client-side copy of the public V3 key — consolidate via proxy later.
-  const KIT_API_KEY = '1DPMCQ3iN_j0o-HFQ_sRLA';
-  const TAG_GMA_NEWSLETTER = 18895877;
-  const TAG_TLC_LAUNCH = 18895878;
-
-  const form = document.getElementById('kit-signup-form');
-  const successEl = document.getElementById('kit-success');
-  const errorEl = document.getElementById('kit-error');
-
-  if (form) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-      const email = formData.get('email');
-      const firstName = formData.get('first_name');
-
-      if (!email) return;
-
-      const submitText = form.querySelector('.kit-submit-text');
-      const submitLoading = form.querySelector('.kit-submit-loading');
-      const submitBtn = form.querySelector('.kit-submit');
-      if (submitText) submitText.style.display = 'none';
-      if (submitLoading) submitLoading.style.display = 'inline';
-      if (submitBtn) submitBtn.disabled = true;
-      successEl.style.display = 'none';
-      errorEl.style.display = 'none';
-      try {
-        const body = JSON.stringify({
-          api_key: KIT_API_KEY,
-          email: email,
-          first_name: firstName || undefined,
-        });
-
-        // Launch tag checked first; newsletter tag fired alongside.
-        const [res1] = await Promise.all([
-          fetch(`https://api.convertkit.com/v3/tags/${TAG_TLC_LAUNCH}/subscribe`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: body,
-          }),
-          fetch(`https://api.convertkit.com/v3/tags/${TAG_GMA_NEWSLETTER}/subscribe`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: body,
-          }),
-        ]);
-
-        if (res1.ok) {
-          form.style.display = 'none';
-          successEl.style.display = 'block';
-        } else {
-          throw new Error('Subscription failed');
-        }
-      } catch (err) {
-        errorEl.style.display = 'block';
-      } finally {
-        if (submitText) submitText.style.display = 'inline';
-        if (submitLoading) submitLoading.style.display = 'none';
-        if (submitBtn) submitBtn.disabled = false;
-      }
-    });
-  }
-</script>
 
 </Layout>

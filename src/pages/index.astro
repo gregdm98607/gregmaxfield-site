@@ -235,98 +235,26 @@ import Layout from '../layouts/Base.astro';
   }
 </style>
 <script>
-  // U1: Intersection Observer for active-section highlighting
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a[href^="/#"]');
+  // U1: Intersection Observer for active-section highlighting (homepage only).
+  // Reveal + Kit form handlers now live in Base.astro (B1 fix).
+  document.addEventListener('astro:page-load', () => {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a[href^="/#"]');
+    if (!navLinks.length) return; // not on the homepage
 
-  const sectionObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const id = entry.target.id;
-        navLinks.forEach(link => {
-          const href = link.getAttribute('href');
-          link.classList.toggle('active', href === '/#' + id || href === '#' + id);
-        });
-      }
-    });
-  }, { rootMargin: '-40% 0px -60% 0px' });
-
-  sections.forEach(section => sectionObserver.observe(section));
-
-  // U5: Scroll-reveal animations
-  const reveals = document.querySelectorAll('.reveal');
-  const revealObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        revealObserver.unobserve(entry.target);
-      }
-    });
-  }, { rootMargin: '0px 0px -80px 0px' });
-
-  reveals.forEach(el => revealObserver.observe(el));
-  // Kit newsletter signup
-  const KIT_API_KEY = '1DPMCQ3iN_j0o-HFQ_sRLA';
-  const TAG_GMA_NEWSLETTER = 18895877;
-  const TAG_TLC_LAUNCH = 18895878;
-
-  const form = document.getElementById('kit-signup-form');
-  const successEl = document.getElementById('kit-success');
-  const errorEl = document.getElementById('kit-error');
-
-  if (form) {
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      const formData = new FormData(form);
-      const email = formData.get('email');
-      const firstName = formData.get('first_name');
-
-      if (!email) return;
-
-      // UI: show loading state
-      const submitText = form.querySelector('.kit-submit-text');
-      const submitLoading = form.querySelector('.kit-submit-loading');
-      const submitBtn = form.querySelector('.kit-submit');
-      if (submitText) submitText.style.display = 'none';
-      if (submitLoading) submitLoading.style.display = 'inline';
-      if (submitBtn) submitBtn.disabled = true;
-      successEl.style.display = 'none';
-      errorEl.style.display = 'none';
-      try {
-        // Subscribe to both tags in parallel
-        const body = JSON.stringify({
-          api_key: KIT_API_KEY,
-          email: email,
-          first_name: firstName || undefined,
-        });
-
-        const [res1, res2] = await Promise.all([
-          fetch(`https://api.convertkit.com/v3/tags/${TAG_GMA_NEWSLETTER}/subscribe`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: body,
-          }),
-          fetch(`https://api.convertkit.com/v3/tags/${TAG_TLC_LAUNCH}/subscribe`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: body,
-          }),
-        ]);
-
-        if (res1.ok) {
-          form.style.display = 'none';
-          successEl.style.display = 'block';
-        } else {
-          throw new Error('Subscription failed');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.id;
+          navLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            link.classList.toggle('active', href === '/#' + id || href === '#' + id);
+          });
         }
-      } catch (err) {
-        errorEl.style.display = 'block';
-      } finally {
-        if (submitText) submitText.style.display = 'inline';
-        if (submitLoading) submitLoading.style.display = 'none';
-        if (submitBtn) submitBtn.disabled = false;
-      }
-    });
-  }
+      });
+    }, { rootMargin: '-40% 0px -60% 0px' });
+
+    sections.forEach(section => sectionObserver.observe(section));
+  });
 </script>
 </Layout>

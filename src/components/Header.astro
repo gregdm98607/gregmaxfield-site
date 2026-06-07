@@ -115,26 +115,39 @@
 </style>
 
 <script>
-	// Sticky header shadow on scroll
-	const header = document.querySelector('header');
-	window.addEventListener('scroll', () => {
-		header?.classList.toggle('scrolled', window.scrollY > 10);
-	});
+	// B1 fix: rebind on every navigation so scripts survive ClientRouter transitions.
+	// AbortController prevents scroll listeners from stacking across navigations.
+	let scrollController: AbortController | undefined;
 
-	// Hamburger menu toggle (U4)
-	const toggle = document.querySelector('.menu-toggle');
-	const navLinks = document.querySelector('.nav-links');
-	toggle?.addEventListener('click', () => {
-		const expanded = toggle.getAttribute('aria-expanded') === 'true';
-		toggle.setAttribute('aria-expanded', String(!expanded));
-		navLinks?.classList.toggle('open');
-	});
+	document.addEventListener('astro:page-load', () => {
+		scrollController?.abort();
+		scrollController = new AbortController();
 
-	// Close menu on nav link click (for anchor nav)
-	navLinks?.querySelectorAll('a').forEach(link => {
-		link.addEventListener('click', () => {
-			toggle?.setAttribute('aria-expanded', 'false');
-			navLinks?.classList.remove('open');
+		// Sticky header shadow on scroll
+		const header = document.querySelector('header');
+		window.addEventListener('scroll', () => {
+			header?.classList.toggle('scrolled', window.scrollY > 10);
+		}, { signal: scrollController.signal });
+
+		// Hamburger menu toggle (U4)
+		const toggle = document.querySelector('.menu-toggle');
+		const navLinks = document.querySelector('.nav-links');
+		toggle?.addEventListener('click', () => {
+			const expanded = toggle.getAttribute('aria-expanded') === 'true';
+			toggle.setAttribute('aria-expanded', String(!expanded));
+			navLinks?.classList.toggle('open');
 		});
+
+		// Close menu on nav link click (for anchor nav)
+		navLinks?.querySelectorAll('a').forEach(link => {
+			link.addEventListener('click', () => {
+				toggle?.setAttribute('aria-expanded', 'false');
+				navLinks?.classList.remove('open');
+			});
+		});
+
+		// Reset menu state on navigation (close if left open)
+		toggle?.setAttribute('aria-expanded', 'false');
+		navLinks?.classList.remove('open');
 	});
 </script>

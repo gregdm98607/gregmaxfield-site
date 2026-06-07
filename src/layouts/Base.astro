@@ -26,5 +26,96 @@ const { title, description, image, noindex } = Astro.props;
 			<slot />
 		</main>
 		<Footer />
+
+		<!-- Unified scroll-reveal (B1 — survives view transitions).
+		     Replaces per-page copies in index, books, and the-lund-covenant. -->
+		<script>
+			document.addEventListener('astro:page-load', () => {
+				const revealObserver = new IntersectionObserver((entries) => {
+					entries.forEach(entry => {
+						if (entry.isIntersecting) {
+							entry.target.classList.add('visible');
+							revealObserver.unobserve(entry.target);
+						}
+					});
+				}, { rootMargin: '0px 0px -80px 0px' });
+				document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+			});
+		</script>
+
+		<!-- Unified Kit form handler (B1 + B2 — survives view transitions, fires GA4 subscribe event).
+		     Replaces per-page copies in index, books, and the-lund-covenant. Single source of truth.
+		     NOTE (R3): public V3 key — consolidate via serverless proxy later. -->
+		<script>
+			const KIT_API_KEY = '1DPMCQ3iN_j0o-HFQ_sRLA';
+			const TAG_GMA_NEWSLETTER = 18895877;
+			const TAG_TLC_LAUNCH = 18895878;
+
+			document.addEventListener('astro:page-load', () => {
+				document.querySelectorAll<HTMLFormElement>('.kit-form').forEach(form => {
+					if (form.dataset.kitBound) return;
+					form.dataset.kitBound = 'true';
+
+					const container = form.parentElement;
+					const successEl = container?.querySelector<HTMLElement>('.kit-message.kit-success');
+					const errorEl = container?.querySelector<HTMLElement>('.kit-message.kit-error');
+
+					form.addEventListener('submit', async (e) => {
+						e.preventDefault();
+						const formData = new FormData(form);
+						const email = formData.get('email');
+						const firstName = formData.get('first_name');
+						if (!email) return;
+
+						const submitText = form.querySelector<HTMLElement>('.kit-submit-text');
+						const submitLoading = form.querySelector<HTMLElement>('.kit-submit-loading');
+						const submitBtn = form.querySelector<HTMLButtonElement>('.kit-submit');
+						if (submitText) submitText.style.display = 'none';
+						if (submitLoading) submitLoading.style.display = 'inline';
+						if (submitBtn) submitBtn.disabled = true;
+						if (successEl) successEl.style.display = 'none';
+						if (errorEl) errorEl.style.display = 'none';
+
+						try {
+							const body = JSON.stringify({
+								api_key: KIT_API_KEY,
+								email,
+								first_name: firstName || undefined,
+							});
+
+							const [res1] = await Promise.all([
+								fetch(`https://api.convertkit.com/v3/tags/${TAG_GMA_NEWSLETTER}/subscribe`, {
+									method: 'POST',
+									headers: { 'Content-Type': 'application/json' },
+									body,
+								}),
+								fetch(`https://api.convertkit.com/v3/tags/${TAG_TLC_LAUNCH}/subscribe`, {
+									method: 'POST',
+									headers: { 'Content-Type': 'application/json' },
+									body,
+								}),
+							]);
+
+							if (res1.ok) {
+								form.style.display = 'none';
+								if (successEl) successEl.style.display = 'block';
+								// B2: GA4 subscribe conversion event
+								if (typeof window.gtag === 'function') {
+									window.gtag('event', 'sign_up', { method: 'Kit' });
+								}
+							} else {
+								throw new Error('Subscription failed');
+							}
+						} catch {
+							if (errorEl) errorEl.style.display = 'block';
+						} finally {
+							if (submitText) submitText.style.display = 'inline';
+							if (submitLoading) submitLoading.style.display = 'none';
+							if (submitBtn) submitBtn.disabled = false;
+						}
+					});
+				});
+			});
+		</script>
 	</body>
 </html>

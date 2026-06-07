@@ -25,6 +25,23 @@ const { title, description, image = '/images/og-image.png', noindex = false } = 
   gtag('config', 'G-BNVECLV39M');
 </script>
 
+<!-- GA4: track pageviews on client-side navigation (B2).
+     Module script — runs once, registers an astro:page-load listener that fires on every nav.
+     Skips the first load (already covered by the config call above).
+     Uses window.gtag which is defined by gtag.js once it loads. -->
+<script>
+  let isFirstPageLoad = true;
+  document.addEventListener('astro:page-load', () => {
+    if (isFirstPageLoad) { isFirstPageLoad = false; return; }
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', 'page_view', {
+        page_path: window.location.pathname,
+        page_title: document.title,
+      });
+    }
+  });
+</script>
+
 <!-- Site Verification -->
 <meta name='impact-site-verification' value='4b4ebd26-9e7e-42e9-bdbf-735b17703cb5'>
 
