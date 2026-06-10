@@ -12,8 +12,8 @@
   --color-text-light: #6B7280;
   --color-heading: #1A1A2E;
   --color-secondary: #2D4A3E;
-  --color-accent: #C4956A;
-  --color-accent-hover: #B8875E;
+  --color-accent: #8B6845;        /* WCAG AA — 5.2:1 on --color-bg; white text on bg also passes */
+  --color-accent-hover: #7A5030; /* WCAG AA hover — darker than accent */
   --color-border: #E0D8CF;
   --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
   --font-body: 'Inter', system-ui, -apple-system, sans-serif;
