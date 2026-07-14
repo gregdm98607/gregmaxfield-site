@@ -3,17 +3,41 @@
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
 import { SITE_TITLE } from '../consts';
+import StructuredData from './StructuredData.astro';
+import { websiteNode, organizationNode } from '../data/schema';
 
 interface Props {
 	title: string;
 	description: string;
 	image?: string;
+	imageAlt?: string;
 	noindex?: boolean;
+	ogType?: string;
+	publishedTime?: string;
+	modifiedTime?: string;
+	jsonLd?: Record<string, unknown>[];
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/images/og-image.png', noindex = false } = Astro.props;
+const {
+	title,
+	description,
+	image = '/images/og-image.png',
+	imageAlt = 'Greg Maxfield, author of the literary novel The Lund Covenant',
+	noindex = false,
+	ogType = 'website',
+	publishedTime,
+	modifiedTime,
+	jsonLd = [],
+} = Astro.props;
+
+// Default OG image (og-image.png) is 1200x630. Override imageAlt per page.
+const TWITTER_HANDLE = '@Greg_Maxfield5';
+
+// Sitewide entities (WebSite + Organization) are always present; page-specific
+// nodes (Person, Book, BlogPosting, FAQPage) append via the jsonLd prop.
+const graph = [websiteNode(), organizationNode(), ...jsonLd];
 ---
 
 <!-- Google tag (gtag.js) -->
@@ -74,18 +98,37 @@ const { title, description, image = '/images/og-image.png', noindex = false } = 
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="author" content="Greg Maxfield" />
 
 <!-- Open Graph / Facebook -->
-<meta property="og:type" content="website" />
+<meta property="og:type" content={ogType} />
 <meta property="og:site_name" content={SITE_TITLE} />
 <meta property="og:url" content={Astro.url} />
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content={imageAlt} />
+
+<!-- Article metadata (SEO-03) — emitted only for blog posts. -->
+{ogType === 'article' && (
+	<>
+		{publishedTime && <meta property="article:published_time" content={publishedTime} />}
+		{modifiedTime && <meta property="article:modified_time" content={modifiedTime} />}
+		<meta property="article:author" content="Greg Maxfield" />
+	</>
+)}
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:site" content={TWITTER_HANDLE} />
+<meta property="twitter:creator" content={TWITTER_HANDLE} />
 <meta property="twitter:url" content={Astro.url} />
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+<meta property="twitter:image:alt" content={imageAlt} />
+
+<!-- Structured data (SEO-01/02, LLM-01, LLM-03) — one @graph per page. -->
+<StructuredData schema={graph} />

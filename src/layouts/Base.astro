@@ -8,16 +8,25 @@ interface Props {
 	title: string;
 	description: string;
 	image?: string;
+	imageAlt?: string;
 	noindex?: boolean;
+	jsonLd?: Record<string, unknown>[];
 }
 
-const { title, description, image, noindex } = Astro.props;
+const { title, description, image, imageAlt, noindex, jsonLd } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} image={image} noindex={noindex} />
+		<BaseHead
+			title={title}
+			description={description}
+			image={image}
+			imageAlt={imageAlt}
+			noindex={noindex}
+			jsonLd={jsonLd}
+		/>
 		<ClientRouter />
 	</head>
 	<body>

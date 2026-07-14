@@ -1,8 +1,13 @@
 ---
 import Layout from '../layouts/Base.astro';
+import { personNode } from '../data/schema';
 ---
 
-<Layout title="About — Greg Maxfield" description="About Greg Maxfield — literary fiction author from the American West.">
+<Layout
+	title="About — Greg Maxfield"
+	description="About Greg Maxfield — literary fiction author from the American West."
+	jsonLd={[personNode()]}
+>
 
 <section class="about-section" style="padding-top:3rem;">
   <div class="container content-narrow">

@@ -24,7 +24,7 @@ Gill is a man who knows how to document things. What he does not know, for most 
 
 ## With Gratitude
 
-If you have been following along on [The Unfolding Plot](https://theunfoldingplot.substack.com), where the novel has been serializing chapter by chapter, thank you for reading it the slow way. If you are new here, welcome - the whole story is now yours to read at your own pace.
+If you have been following along on [The Unfolding Plot](https://gregmaxfield.substack.com), where the novel has been serializing chapter by chapter, thank you for reading it the slow way. If you are new here, welcome - the whole story is now yours to read at your own pace.
 
 You can [find the book on Amazon](https://www.amazon.com/dp/B0H1XQCBPH), and I would be grateful if, once you have finished, you left a few honest words in a review. For a debut novelist, a handful of readers willing to say what they thought is worth more than any advertisement I could buy.
 

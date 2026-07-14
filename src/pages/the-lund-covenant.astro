@@ -1,11 +1,17 @@
 ---
 import Layout from '../layouts/Base.astro';
+import { bookNode, personNode } from '../data/schema';
 
 // CTO review B4 — hide placeholder "Praise" until the first real ARC endorsement lands.
 const SHOW_PRAISE = false;
 ---
 
-<Layout title="The Lund Covenant — Greg Maxfield" description="A novel of the American West. When Gill Lund returns to Castle Dale, Utah after his father's death, he intends to stay three days." image="/images/og-image.png">
+<Layout
+	title="The Lund Covenant — Greg Maxfield"
+	description="A novel of the American West. When Gill Lund returns to Castle Dale, Utah after his father's death, he intends to stay three days."
+	image="/images/og-image.png"
+	jsonLd={[personNode(), bookNode()]}
+>
 
 <!-- BOOK HERO -->
 <section class="book-page-hero">
