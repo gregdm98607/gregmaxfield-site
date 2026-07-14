@@ -69,6 +69,15 @@
   aren't RRT rich-result types either. All were structurally validated locally (required fields present).
   → Post-deploy: confirm those via validator.schema.org and/or RRT-by-URL on the live pages.
 
+## Session 2026-07-14 (cont.) — PR opened + Vercel preview
+- Pushed branch; opened PR #4 (https://github.com/gregdm98607/gregmaxfield-site/pull/4) → base master. 3 commits.
+- Vercel bot comment = automated deploy status only (preview Ready, 0 unresolved feedback). No actionable review feedback; nothing to fix.
+- Tried RRT-by-URL on the preview to close DoD: preview is behind **Vercel deployment protection**
+  (302 → vercel.com/sso-api), so Google RRT / validator.schema.org / Googlebot can't fetch it.
+  → RRT-by-URL deferred to production (public gregmaxfield.com) post-merge, OR Greg disables preview
+  protection in Vercel (his security call — not something I change). Code-mode RRT already confirmed
+  Article clean; local validation covers the rest.
+
 ### Errors
 | Error | Resolution |
 |-------|------------|
