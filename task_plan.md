@@ -54,6 +54,35 @@ Began with a quick win (custom 404); now tracking the full CTO site-review backl
 | R1 | JSON-LD: Book+offers/ASIN, Person, Article | P2 × S | todo |
 | R2 | Buy-links single data file (`src/data/retailers.ts`) | P2 × S | todo |
 
+---
+
+## Phase: Security Hardening (from Security Review 2026-07-14)
+**Status:** todo (backlog captured, none started)
+**Source of truth:** [SECURITY_REVIEW_2026-07-14.md](SECURITY_REVIEW_2026-07-14.md) — full impact/repro/rationale per ticket.
+**Context:** Static Astro site, no server surface. Full-tree review found **no critical/high** issues.
+7 findings captured as tickets below. Prioritize SEC-01 + SEC-02 before launch-traffic ramp.
+
+| ID | Ticket | Severity | Pri × Effort | Status |
+|----|--------|----------|--------------|--------|
+| SEC-01 | Proxy the Kit/ConvertKit V3 API key (exposed client-side in `Base.astro:50`) | Medium | P1 × M | todo |
+| SEC-02 | Add HTTP security headers + CSP (`vercel.json`) | Medium | P1 × S | todo |
+| SEC-03 | Close MDX-injection gap in content-only auto-deploy lane | Medium | P2 × S | todo |
+| SEC-04 | Decide + implement real gating for `/sneak-peek` (noindex ≠ access control) | Low | P2 × S | todo |
+| SEC-05 | Bound third-party script risk (SRI where feasible; covered by SEC-02 CSP) | Low | P3 × S | todo |
+| SEC-06 | Remove `--api-key` CLI flag from `generate_featured_images.py` (env-only) | Low | P3 × XS | todo |
+| SEC-07 | Enable Dependabot + optional `npm audit` step in CI | Low | P3 × XS | todo |
+
+### Acceptance criteria (per ticket)
+- **SEC-01** — Newsletter subscribe call runs through a Vercel serverless/edge function holding the key server-side; add rate-limit + honeypot/Turnstile; no `KIT_API_KEY` literal remains in the client bundle. Confirm value is the public `api_key`; rotate if the secret was ever exposed.
+- **SEC-02** — `vercel.json` sets `Content-Security-Policy` (allowlist: googletagmanager.com, fonts.googleapis.com, fonts.gstatic.com, api.convertkit.com), `X-Frame-Options: DENY`, `X-Content-Type-Options: nosniff`, `Referrer-Policy: strict-origin-when-cross-origin`. Verify headers on deployed preview. (Creating `vercel.json` triggers the intended review lane per `.deployguard`.)
+- **SEC-03** — Auto-deploy lane restricted to `.md` only, OR a build-time lint rejects raw `<script>`/JSX in `src/content/`, OR CSP (SEC-02) blocks injected inline script. Decision recorded in `.deployguard`.
+- **SEC-04** — Explicit product decision logged: sneak-peek is public OR email-gated. If gated, implement server-side gate (function + token or Kit-delivered content) before real Ch1 text lands.
+- **SEC-05** — Accept gtag/Fonts as residual (bounded by SEC-02 CSP); apply SRI to any future pin-able third-party asset.
+- **SEC-06** — Script reads key from `GEMINI_API_KEY` / `.env` only; CLI `--api-key` flag removed or documented as discouraged on shared machines.
+- **SEC-07** — `.github/dependabot.yml` enabling alerts + version updates; optional non-blocking `npm audit --audit-level=high` in `frontend-check.yml`.
+
+---
+
 ## Decisions
 - 404 quick win: reuse Base layout + tokens, no new global CSS. (done)
 - Backlog adopted from CTO review 2026-06-05; original IDs preserved for traceability.

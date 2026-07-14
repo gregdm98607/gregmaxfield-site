@@ -44,7 +44,11 @@ import Layout from '../layouts/Base.astro';
           <div class="buy-grid">
             <div class="buy-option">
               <p class="buy-option-label">Paperback, Hardcover &amp; Kindle</p>
-              <a href="https://www.amazon.com/Lund-Covenant-novel-Greg-Maxfield/dp/B0H1XQCBPH" class="btn btn-primary" target="_blank" rel="noopener">Order on Amazon</a>
+              <div class="buy-format-links">
+                <a href="https://www.amazon.com/dp/B0H7F3XY9F" class="btn btn-primary" target="_blank" rel="noopener">Paperback on Amazon</a>
+                <a href="https://www.amazon.com/dp/B0H7J272GD" class="btn btn-secondary" target="_blank" rel="noopener">Hardcover on Amazon</a>
+                <a href="https://www.amazon.com/dp/B0H7FPRFP3" class="btn btn-secondary" target="_blank" rel="noopener">Kindle on Amazon</a>
+              </div>
             </div>
             <div class="buy-option">
               <p class="buy-option-label">Paperback &amp; Wide Distribution</p>
@@ -229,6 +233,12 @@ import Layout from '../layouts/Base.astro';
     color: var(--color-text-light);
     max-width: 200px;
     margin: 0;
+  }
+  .buy-format-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
   }
 
   /* Text links */

@@ -22,6 +22,19 @@
 - [x] canonical URL + `site` — present/configured.
 - [ ] **404 page — MISSING** (`src/pages/404.*` not found) → chosen quick win.
 
+## Security Review — 2026-07-14 (summary; full doc = SECURITY_REVIEW_2026-07-14.md)
+Static site → no server attack surface; no critical/high findings. 7 tickets = SEC-01…SEC-07 in task_plan.md.
+- **SEC-01 (Med):** Kit V3 `api_key` embedded client-side (`Base.astro:50`). It's the *public* key →
+  spam-subscribe / list-pollution / billing abuse, NOT subscriber-data exfiltration (`api_secret` absent). Proxy it.
+- **SEC-02 (Med):** No security headers / CSP — no `vercel.json`. Add CSP + X-Frame-Options + nosniff + Referrer-Policy.
+- **SEC-03 (Med):** Content-only auto-deploy lane treats `src/content/` as safe, but MDX allows `<script>`. Tighten lane.
+- **SEC-04 (Low):** `/sneak-peek` "gated" by `noindex` only (not access control) — matters once real Ch1 text is added.
+- **SEC-05 (Low):** gtag/Fonts loaded without SRI (accepted residual, bounded by CSP).
+- **SEC-06 (Low):** `generate_featured_images.py` accepts `--api-key` CLI arg (history/`ps` leak). Env-only preferred.
+- **SEC-07 (Low/Info):** No Dependabot / `npm audit` in CI.
+- **Verified clean:** no hardcoded privileged secrets (Gemini key env-sourced, `.env` gitignored), no `set:html`/`eval`,
+  CI not fork-exploitable (`pull_request`, no secrets), user input (email/name) offloaded to Kit, never reflected/stored.
+
 ## Brand voice (from index/about)
 American West, landscape-as-memory, restrained literary tone. Comps: Kent Haruf,
 Marilynne Robinson, Denis Johnson. Debut novel *The Lund Covenant*.
