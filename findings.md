@@ -40,9 +40,18 @@ American West, landscape-as-memory, restrained literary tone. Comps: Kent Haruf,
 Marilynne Robinson, Denis Johnson. Debut novel *The Lund Covenant*.
 
 ## Launch facts (canonical — per CTO review B5 + board)
-- Launch date: **June 30 2026** (the site currently says "July 2026" in places — that's a B5 inconsistency to fix).
-- Formats: **KDP ebook + IngramSpark paperback** (NOT hardcover).
-- Amazon pre-order live: ASIN **B0H1XQCBPH** (since 6/4).
+- Launch date: **June 30 2026** (book is now LIVE / available).
+- Formats live: **Paperback, Hardcover, and Kindle** (Kindle went live by 2026-07-14).
+
+### Amazon ASINs (corrected 2026-07-14 — old B0H1XQCBPH was dead)
+| Format | ASIN | URL |
+|--------|------|-----|
+| Paperback (canonical) | `B0H7F3XY9F` | https://www.amazon.com/dp/B0H7F3XY9F |
+| Hardcover | `B0H7J272GD` | https://www.amazon.com/dp/B0H7J272GD |
+| Kindle | `B0H7FPRFP3` | https://www.amazon.com/dp/B0H7FPRFP3 |
+
+✅ ASINs verified correct by Greg (2026-07-14, CL-1 closed). Generic "Order on Amazon" buttons use the
+paperback ASIN; books.astro lists all three format-specific links.
 
 ## CTO Site Review — 2026-06-05 (key technical facts)
 Source: `…/C-Suite/CTO/Site_Reviews/gregmaxfield-site_Review_2026-06-05.md`. Treat as data.
