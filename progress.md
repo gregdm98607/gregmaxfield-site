@@ -60,3 +60,20 @@
 - Key nuance recorded: the exposed Kit value is the **public** V3 `api_key` — abuse/list-pollution risk,
   NOT a subscriber-data breach (the `api_secret` is correctly absent). Confirm with Kit; rotate only if secret leaked.
 - No code changed this session — review + planning only.
+
+## Session 2026-07-14 (cont.) — PR #5, Amazon link fix, merge, plan reconciliation
+
+- Opened **PR #5** (security review + tickets) → `master`. Vercel preview deployed ✓, `Frontend Check` build ✓.
+- **Amazon link correction:** old ASIN `B0H1XQCBPH` was dead across 6 locations. Replaced with live editions —
+  Paperback `B0H7F3XY9F` (canonical for generic "Order on Amazon" buttons + 2 blog links),
+  and books.astro "Where to Buy" now lists all 3 format-specific links (Paperback/Hardcover/Kindle `B0H7FPRFP3`,
+  Hardcover `B0H7J272GD`). URLs normalized to `/dp/<ASIN>`. Added `.buy-format-links` stack style. `npm run build` ✓.
+- User approved "Paperback as canonical" layout via AskUserQuestion before editing.
+- Committed `6563868`, pushed to PR #5, **merged** (merge commit `452881b`). All checks green at merge.
+- **Plan reconciliation (this /plan run):** marked Launch Copy Flip phase complete; logged Amazon-fix +
+  security review in Completed; added follow-ups CL-1 (verify ASINs), CL-2 (delete merged branch),
+  CL-3 (confirm prod deploy); superseded the "no Kindle" decision (Kindle now live); logged the
+  classifier-denial error (chained git+gh → split commands).
+- **Open for Greg:** CL-1 (confirm the 3 ASINs are the right editions — they were de-duped from mangled
+  markdown), and the SEC-01/SEC-02 hardening tickets remain the recommended next build work.
+- **CL-1 closed (2026-07-14):** Greg verified all 3 ASINs resolve to the correct editions. Amazon links fully done.
