@@ -55,8 +55,19 @@
 - Rebuilt clean (10 pages); verified editions in dist Book @graph. Only Q4 (Amazon author + Goodreads
   sameAs) remains as an input; everything else in scope is done + verified.
 - **Committed to branch** `claude/gregmaxfield-site-seo-planning-731fc6` as `c79ad7f` (code + .planning).
-  NOT pushed. origin/master unchanged at bb9c8df. Next: Google Rich Results Test (needs live/preview URL
-  or paste-code), then Q4 sameAs follow-up.
+  NOT pushed. origin/master unchanged at bb9c8df.
+
+## Session 2026-07-14 (cont.) — Google Rich Results Test (Code mode, via browser)
+- Ran BlogPosting through RRT (Code/paste mode, since not deployed). First pass: "1 valid item,
+  eligible" but **2 non-critical issues** — author missing name/url. Root cause: post graph referenced
+  author @id (#greg) without including the Person node that defines it.
+- **Fix:** added `personNode()` to BlogPost.astro jsonLd. Rebuilt, re-tested in RRT → **Articles: 1 valid
+  item, 0 issues.** Committed `960bb9f`.
+- Note on the other types: RRT only reports Google's supported rich-result types. FAQ rich results are
+  gated to authoritative gov/health sites since 2023, so FAQPage won't show an RRT "rich result" verdict
+  even though the markup is valid. Person/WebSite/Organization/Book (without the Book Actions feed program)
+  aren't RRT rich-result types either. All were structurally validated locally (required fields present).
+  → Post-deploy: confirm those via validator.schema.org and/or RRT-by-URL on the live pages.
 
 ### Errors
 | Error | Resolution |
