@@ -45,3 +45,18 @@
   - Unified Kit handler fires `window.gtag('event', 'sign_up', { method: 'Kit' })` on successful subscribe.
 - Side benefit: Kit form code deduplicated (3 copies → 1 in Base.astro). R3 debt annotated.
 - `npm run build` ✓ clean. Verified: `astro:page-load` in 10 files, Kit key in 7 (unified), GA4 events in 9.
+
+## Session 2026-07-14 — Security review + ticket capture (CSO lens)
+
+- Full-tree security audit of the static site (src/, scripts/, public/, CI, deploy config, deps).
+  Branch diff vs `master` was empty → audited whole codebase per request.
+- Wrote standalone handoff doc `SECURITY_REVIEW_2026-07-14.md` (for PM): exec summary, risk register,
+  per-finding location/impact/fix, prioritization, and a "verified clean" coverage section.
+- **No critical/high findings.** No server attack surface (static SSG), no hardcoded privileged secrets,
+  no `set:html`/`eval`, CI uses `pull_request` (not `pull_request_target`) so fork PRs are unprivileged.
+- Captured **7 tickets SEC-01…SEC-07** into task_plan.md (new "Security Hardening" phase) with
+  Pri × Effort + acceptance criteria. Top two before launch traffic: SEC-01 (proxy Kit key),
+  SEC-02 (headers/CSP). Both quick.
+- Key nuance recorded: the exposed Kit value is the **public** V3 `api_key` — abuse/list-pollution risk,
+  NOT a subscriber-data breach (the `api_secret` is correctly absent). Confirm with Kit; rotate only if secret leaked.
+- No code changed this session — review + planning only.
