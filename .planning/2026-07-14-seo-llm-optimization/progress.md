@@ -54,6 +54,9 @@
   (ISBN 979-8185358207, $16.99), Kindle (ASIN B0H7FPRFP3 → KINDLE_URL). Each with bookFormat + offer.
 - Rebuilt clean (10 pages); verified editions in dist Book @graph. Only Q4 (Amazon author + Goodreads
   sameAs) remains as an input; everything else in scope is done + verified.
+- **Committed to branch** `claude/gregmaxfield-site-seo-planning-731fc6` as `c79ad7f` (code + .planning).
+  NOT pushed. origin/master unchanged at bb9c8df. Next: Google Rich Results Test (needs live/preview URL
+  or paste-code), then Q4 sameAs follow-up.
 
 ### Errors
 | Error | Resolution |

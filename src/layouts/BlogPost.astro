@@ -5,7 +5,7 @@ import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
-import { blogPostingNode } from '../data/schema';
+import { blogPostingNode, personNode } from '../data/schema';
 
 type Props = CollectionEntry<'blog'>['data'];
 
@@ -32,7 +32,7 @@ const postSchema = blogPostingNode({
 			ogType="article"
 			publishedTime={publishedISO}
 			modifiedTime={modifiedISO}
-			jsonLd={[postSchema]}
+			jsonLd={[personNode(), postSchema]}
 		/>
 		<style>
 			main {
