@@ -18,6 +18,6 @@ I wanted to write a novel that took the American West seriously — not as backd
 
 ## What's Next
 
-*The Lund Covenant* is available now. You can [order on Amazon](https://www.amazon.com/Lund-Covenant-novel-Greg-Maxfield/dp/B0H1XQCBPH) or follow the serialization chapter by chapter on [Substack](https://gregmaxfield.substack.com).
+*The Lund Covenant* is available now. You can [order on Amazon](https://www.amazon.com/dp/B0H7F3XY9F) or follow the serialization chapter by chapter on [Substack](https://gregmaxfield.substack.com).
 
 I'll be sharing more here about the writing process, the landscape that inspired the book, and the questions that kept me up at night while writing it. Thanks for reading.
