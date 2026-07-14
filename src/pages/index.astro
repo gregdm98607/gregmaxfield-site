@@ -1,8 +1,13 @@
 ---
 import Layout from '../layouts/Base.astro';
+import { personNode, bookNode, faqNode, FAQ_ITEMS } from '../data/schema';
 ---
 
-<Layout title="Greg Maxfield — Author" description="Literary fiction rooted in the American West. Home of The Lund Covenant.">
+<Layout
+	title="Greg Maxfield — Author"
+	description="Literary fiction rooted in the American West. Home of The Lund Covenant."
+	jsonLd={[personNode(), bookNode(), faqNode(FAQ_ITEMS)]}
+>
 
 <!-- HERO (W1: parallax desert backdrop) -->
 <section id="hero" class="hero">
@@ -100,6 +105,20 @@ import Layout from '../layouts/Base.astro';
         </p>
       </div>
     </div>
+  </div>
+</section>
+<!-- FAQ (LLM-01) — visible answers mirror the FAQPage JSON-LD via shared FAQ_ITEMS. -->
+<section id="faq" class="faq-section">
+  <div class="container content-narrow reveal">
+    <h2 style="text-align:center;">Frequently Asked</h2>
+    <dl class="faq-list">
+      {FAQ_ITEMS.map((item) => (
+        <div class="faq-item">
+          <dt>{item.question}</dt>
+          <dd>{item.answer}</dd>
+        </div>
+      ))}
+    </dl>
   </div>
 </section>
 <!-- NEWSLETTER SIGNUP -->
@@ -233,6 +252,30 @@ import Layout from '../layouts/Base.astro';
       width: 100%;
       min-width: auto;
     }
+  }
+
+  /* FAQ (LLM-01) */
+  .faq-list {
+    margin: 2rem auto 0;
+  }
+  .faq-item {
+    padding: 1.25rem 0;
+    border-top: 1px solid rgba(0,0,0,0.08);
+  }
+  .faq-item:last-child {
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+  }
+  .faq-item dt {
+    font-family: var(--font-heading);
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--color-secondary);
+    margin-bottom: 0.5rem;
+  }
+  .faq-item dd {
+    margin: 0;
+    color: var(--color-text);
+    line-height: 1.7;
   }
 </style>
 <script>
