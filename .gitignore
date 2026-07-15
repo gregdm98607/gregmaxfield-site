@@ -25,3 +25,6 @@ pnpm-debug.log*
 
 # Claude Code worktrees (transient local artifacts)
 .claude/worktrees/
+
+# auto-sync / PR coordination sentinel — never commit (see Git Auto Push + Auto Deploy Monitor)
+.autosync-pause
