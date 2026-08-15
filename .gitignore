@@ -23,8 +23,8 @@ pnpm-debug.log*
 # jetbrains setting folder
 .idea/
 
-# Claude Code worktrees (transient local artifacts)
-.claude/worktrees/
+# Claude Code local state (transient local artifacts, including worktrees)
+.claude/
 
 # auto-sync / PR coordination sentinel — never commit (see Git Auto Push + Auto Deploy Monitor)
 .autosync-pause
