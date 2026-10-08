@@ -9,7 +9,7 @@ export function getStaticPaths() {
 }
 const { wb } = Astro.props;
 const fullTitle = `${wb.title}: Operation Granny Files Homeschool Workbook ${wb.volume}`;
-const isbn13 = `${wb.isbn.slice(0,3)}-${wb.isbn.slice(3)}`;
+const isbn13 = wb.isbn;
 const jsonLd = [{
   '@type': 'Book',
   name: fullTitle,
