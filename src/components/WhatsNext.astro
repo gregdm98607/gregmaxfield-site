@@ -1,0 +1,27 @@
+---
+import data from '../data/whats-next.json';
+const today = new Date().toISOString().slice(0, 10);
+const items = data.items.filter((i) => !('show_until' in i) || !i.show_until || i.show_until >= today);
+const ext = (href: string) => href.startsWith('http');
+---
+<section id="whats-next" class="whats-next-section">
+  <div class="container reveal">
+    <h2 style="text-align:center;">What's Next</h2>
+    <div class="wn-grid">
+      {items.map((i) => (
+        <div class="wn-item">
+          <h3>{i.title}</h3>
+          <p>{i.body}</p>
+          <a href={i.link.href} class="text-link" {...(ext(i.link.href) ? { target: '_blank', rel: 'noopener' } : {})}>{i.link.label} &rarr;</a>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+<style>
+  .whats-next-section { padding: 3rem 0; }
+  .wn-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+  .wn-item { border-left: 3px solid var(--color-accent); padding: 0.25rem 0 0.25rem 1rem; }
+  .wn-item h3 { margin: 0 0 0.5rem; font-size: 1.15rem; }
+  .wn-item p { margin: 0 0 0.5rem; }
+</style>

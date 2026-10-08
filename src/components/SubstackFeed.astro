@@ -1,0 +1,56 @@
+---
+// Latest posts from The Unfolding Plot. Rendered at build time (works without JS, indexable),
+// then refreshed in the browser from /api/substack-feed so the list stays current between deploys.
+import { parseFeed } from '../../api/substack-feed.js';
+interface Props { limit?: number }
+const { limit = 4 } = Astro.props;
+let posts: { title: string; link: string; date: string; description: string }[] = [];
+try {
+  const r = await fetch('https://gregmaxfield.substack.com/feed');
+  if (r.ok) posts = parseFeed(await r.text(), limit);
+} catch { /* build without network: fall back to the link below */ }
+const fmt = (d: string) => new Date(d).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+---
+<div class="substack-feed" data-limit={limit}>
+  <ul class="sf-list">
+    {posts.map((p) => (
+      <li>
+        <a href={p.link} target="_blank" rel="noopener" class="sf-title">{p.title}</a>
+        <span class="sf-date">{fmt(p.date)}</span>
+      </li>
+    ))}
+  </ul>
+  <p class="sf-more"><a href="https://gregmaxfield.substack.com/archive" target="_blank" rel="noopener">All posts on The Unfolding Plot &rarr;</a></p>
+</div>
+<script>
+  document.addEventListener('astro:page-load', () => {
+    document.querySelectorAll<HTMLElement>('.substack-feed').forEach(async (el) => {
+      try {
+        const r = await fetch(`/api/substack-feed?limit=${el.dataset.limit ?? 4}`);
+        if (!r.ok) return;
+        const { posts } = await r.json();
+        if (!posts?.length) return;
+        const ul = el.querySelector('.sf-list');
+        if (!ul) return;
+        ul.replaceChildren(...posts.map((p: { title: string; link: string; date: string }) => {
+          const li = document.createElement('li');
+          const a = document.createElement('a');
+          a.href = p.link; a.target = '_blank'; a.rel = 'noopener'; a.className = 'sf-title'; a.textContent = p.title;
+          const s = document.createElement('span');
+          s.className = 'sf-date';
+          s.textContent = new Date(p.date).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+          li.append(a, s);
+          return li;
+        }));
+      } catch { /* keep the build-time list */ }
+    });
+  });
+</script>
+<style>
+  .sf-list { display: block; list-style: none; padding: 0; margin: 1.5rem 0 0; }
+  .sf-list li { width: 100%; margin: 0; text-align: left; display: flex; justify-content: space-between; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .sf-title { font-weight: 600; text-decoration: none; }
+  .sf-date { color: var(--color-text-light); font-size: 0.9rem; white-space: nowrap; }
+  .sf-more { text-align: center; margin-top: 1rem; }
+  @media (max-width: 480px) { .sf-list li { flex-direction: column; gap: 0.25rem; } }
+</style>

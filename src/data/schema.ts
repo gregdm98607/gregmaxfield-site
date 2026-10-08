@@ -7,7 +7,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 export const SITE_URL = 'https://www.gregmaxfield.com';
 export const AMAZON_URL =
-	'https://www.amazon.com/Lund-Covenant-novel-Greg-Maxfield/dp/B0H1XQCBPH';
+	'https://www.amazon.com/dp/B0H7F3XY9F';
 // Kindle edition (its own ASIN).
 export const KINDLE_URL = 'https://www.amazon.com/dp/B0H7FPRFP3';
 

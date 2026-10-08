@@ -1,0 +1,63 @@
+---
+// One short page per workbook. Facts come from src/data/books.json (synced from OGF_Content_Registry);
+// depth lives on operationgrannyfiles.com.
+import Layout from '../../layouts/Base.astro';
+import { books, buyWorkbook } from '../../data/buy';
+
+export function getStaticPaths() {
+  return books.workbooks.map((wb) => ({ params: { slug: wb.slug }, props: { wb } }));
+}
+const { wb } = Astro.props;
+const fullTitle = `${wb.title}: Operation Granny Files Homeschool Workbook ${wb.volume}`;
+const isbn13 = `${wb.isbn.slice(0,3)}-${wb.isbn.slice(3)}`;
+const jsonLd = [{
+  '@type': 'Book',
+  name: fullTitle,
+  author: { '@type': 'Person', name: 'Greg Maxfield' },
+  isbn: wb.isbn,
+  bookFormat: 'https://schema.org/Paperback',
+  isPartOf: { '@type': 'BookSeries', name: wb.series },
+  publisher: { '@type': 'Organization', name: 'Silver Sage Books' },
+}];
+---
+<Layout title={`${wb.title} — Homeschool Workbook ${wb.volume}`} description={wb.summary} jsonLd={jsonLd}>
+<section class="page-header">
+  <div class="container content-narrow">
+    <p class="wb-kicker">Operation Granny Files Homeschool Workbook {wb.volume}</p>
+    <h1>{wb.title}</h1>
+    <p class="wb-lead">{wb.summary}</p>
+  </div>
+</section>
+<section class="container content-narrow wb-body">
+  {wb.units.length > 0 && (
+    <>
+      <h2>Inside</h2>
+      <ol class="wb-units">{wb.units.map((u) => <li>{u}</li>)}</ol>
+    </>
+  )}
+  <dl class="wb-facts">
+    <div><dt>For</dt><dd>{wb.audience}</dd></div>
+    <div><dt>Format</dt><dd>{wb.format}</dd></div>
+    <div><dt>ISBN</dt><dd>{isbn13}</dd></div>
+    <div><dt>List price</dt><dd>US ${wb.list_price_usd}</dd></div>
+  </dl>
+  <div class="wb-buy">
+    {wb.amazon_asin
+      ? <a href={buyWorkbook(wb.volume, 'workbooks')} class="btn btn-primary" target="_blank" rel="noopener">Buy on Amazon</a>
+      : <p class="wb-note">Available in paperback — any bookstore can order it by ISBN {isbn13}.</p>}
+    <a href={wb.ogf_url} class="btn btn-secondary" target="_blank" rel="noopener">Free sample &amp; teaching guide at Operation Granny Files &rarr;</a>
+  </div>
+  <p style="margin-top:2rem;"><a href="/workbooks">&larr; All three workbooks</a></p>
+</section>
+<style>
+  .wb-kicker { font-size: 0.85rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-light); margin: 0; }
+  .wb-lead { font-size: 1.15rem; }
+  .wb-body { padding-bottom: 3rem; }
+  .wb-units { padding-left: 1.25rem; line-height: 1.8; }
+  .wb-facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; margin: 2rem 0; }
+  .wb-facts dt { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--color-text-light); }
+  .wb-facts dd { margin: 0.25rem 0 0; }
+  .wb-buy { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
+  .wb-note { margin: 0; }
+</style>
+</Layout>

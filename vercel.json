@@ -1,0 +1,124 @@
+{
+  "redirects": [
+    {
+      "source": "/buy/tlc-paperback/home-book",
+      "destination": "https://www.amazon.com/dp/B0H7F3XY9F",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-paperback/tlc-page-top",
+      "destination": "https://www.amazon.com/dp/B0H7F3XY9F",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-paperback/tlc-page-order",
+      "destination": "https://www.amazon.com/dp/B0H7F3XY9F",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-paperback/books-tlc",
+      "destination": "https://www.amazon.com/dp/B0H7F3XY9F",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-paperback/blog",
+      "destination": "https://www.amazon.com/dp/B0H7F3XY9F",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-paperback/workbooks",
+      "destination": "https://www.amazon.com/dp/B0H7F3XY9F",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-hardcover/home-book",
+      "destination": "https://www.amazon.com/dp/B0H7J272GD",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-hardcover/tlc-page-top",
+      "destination": "https://www.amazon.com/dp/B0H7J272GD",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-hardcover/tlc-page-order",
+      "destination": "https://www.amazon.com/dp/B0H7J272GD",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-hardcover/books-tlc",
+      "destination": "https://www.amazon.com/dp/B0H7J272GD",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-hardcover/blog",
+      "destination": "https://www.amazon.com/dp/B0H7J272GD",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-hardcover/workbooks",
+      "destination": "https://www.amazon.com/dp/B0H7J272GD",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-kindle/home-book",
+      "destination": "https://www.amazon.com/dp/B0H7FPRFP3",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-kindle/tlc-page-top",
+      "destination": "https://www.amazon.com/dp/B0H7FPRFP3",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-kindle/tlc-page-order",
+      "destination": "https://www.amazon.com/dp/B0H7FPRFP3",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-kindle/books-tlc",
+      "destination": "https://www.amazon.com/dp/B0H7FPRFP3",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-kindle/blog",
+      "destination": "https://www.amazon.com/dp/B0H7FPRFP3",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-kindle/workbooks",
+      "destination": "https://www.amazon.com/dp/B0H7FPRFP3",
+      "permanent": false
+    },
+    {
+      "source": "/buy/wb1/home-book",
+      "destination": "https://www.amazon.com/dp/B0H3HF9PGT",
+      "permanent": false
+    },
+    {
+      "source": "/buy/wb1/tlc-page-top",
+      "destination": "https://www.amazon.com/dp/B0H3HF9PGT",
+      "permanent": false
+    },
+    {
+      "source": "/buy/wb1/tlc-page-order",
+      "destination": "https://www.amazon.com/dp/B0H3HF9PGT",
+      "permanent": false
+    },
+    {
+      "source": "/buy/wb1/books-tlc",
+      "destination": "https://www.amazon.com/dp/B0H3HF9PGT",
+      "permanent": false
+    },
+    {
+      "source": "/buy/wb1/blog",
+      "destination": "https://www.amazon.com/dp/B0H3HF9PGT",
+      "permanent": false
+    },
+    {
+      "source": "/buy/wb1/workbooks",
+      "destination": "https://www.amazon.com/dp/B0H3HF9PGT",
+      "permanent": false
+    }
+  ]
+}

@@ -1,0 +1,79 @@
+{
+  "_source": "Book facts for gregmaxfield.com. Workbook facts are synced from the vault's 05_Projects/Operation_Granny_Files/OGF_Content_Registry.md (Books & Products + IngramSpark tables) by the CoS site-upkeep task; edit the registry, not this file. After editing, run `npm run gen:buy` to regenerate the /buy redirects in vercel.json.",
+  "_synced": "2026-10-07",
+  "attribution": {
+    "_note": "Amazon Attribution tag query strings, one per placement (e.g. \"maas=maas_adg_XXXX&ref_=aa_maas\"). PLACEHOLDER values are skipped — the redirect then goes to the clean Amazon URL. The Chairman creates the real tags once in Amazon Attribution; paste each here and run `npm run gen:buy`.",
+    "home-book": "PLACEHOLDER",
+    "tlc-page-top": "PLACEHOLDER",
+    "tlc-page-order": "PLACEHOLDER",
+    "books-tlc": "PLACEHOLDER",
+    "blog": "PLACEHOLDER",
+    "workbooks": "PLACEHOLDER"
+  },
+  "tlc": {
+    "title": "The Lund Covenant",
+    "formats": {
+      "paperback": { "label": "Paperback", "asin": "B0H7F3XY9F" },
+      "hardcover": { "label": "Hardcover", "asin": "B0H7J272GD" },
+      "kindle": { "label": "Kindle", "asin": "B0H7FPRFP3" }
+    }
+  },
+  "workbooks": [
+    {
+      "slug": "family-history-adventures",
+      "volume": 1,
+      "title": "Family History Adventures",
+      "series": "Operation Granny Files Homeschool Workbooks",
+      "summary": "The first steps of family history for homeschool families: what family history is, interviewing a relative, hunting for family documents, drawing a four-generation family tree, keeping a research notebook, and reading the census.",
+      "units": [
+        "What Is Family History?",
+        "Interview a Relative",
+        "The Family Document Hunt",
+        "Draw Your Family Tree",
+        "Keep a Research Notebook",
+        "Reading the Census"
+      ],
+      "audience": "Homeschool families with learners ages 8–14 (roughly Grades 3–8).",
+      "format": "Paperback, 8.5 × 11 in",
+      "isbn": "9798182801508",
+      "amazon_asin": "B0H3HF9PGT",
+      "list_price_usd": "14.99",
+      "ogf_url": "https://operationgrannyfiles.com/homeschool"
+    },
+    {
+      "slug": "dna-and-family-tree-building",
+      "volume": 2,
+      "title": "DNA & Family Tree Building",
+      "series": "Operation Granny Files Homeschool Workbooks",
+      "summary": "Genetic genealogy made hands-on: what DNA is, taking a test, reading results, meeting DNA cousins, building a DNA-informed family tree, and a capstone family mystery to solve.",
+      "units": [
+        "What Is DNA?",
+        "Taking a DNA Test",
+        "Reading Your Results",
+        "DNA Matches: Meeting Your Cousins",
+        "Building Your DNA Family Tree",
+        "DNA Detective: Solving a Family Mystery"
+      ],
+      "audience": "Homeschool families; follows Workbook 1.",
+      "format": "Paperback, 8.5 × 11 in",
+      "isbn": "9798182801522",
+      "amazon_asin": null,
+      "list_price_usd": "14.99",
+      "ogf_url": "https://operationgrannyfiles.com/homeschool"
+    },
+    {
+      "slug": "telling-the-story",
+      "volume": 3,
+      "title": "Telling the Story",
+      "series": "Operation Granny Files Homeschool Workbooks",
+      "summary": "Turning family research into writing — from the records and interviews gathered in Workbooks 1 and 2 to a family story worth sharing. The capstone of the series.",
+      "units": [],
+      "audience": "Homeschool families; completes the three-volume series.",
+      "format": "Paperback, 8.5 × 11 in",
+      "isbn": "9798182801386",
+      "amazon_asin": null,
+      "list_price_usd": "14.99",
+      "ogf_url": "https://operationgrannyfiles.com/homeschool"
+    }
+  ]
+}

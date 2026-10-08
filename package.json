@@ -11,7 +11,10 @@
     "preview": "astro preview",
     "astro": "astro",
     "generate:images": "python scripts/generate_featured_images.py",
-    "generate:images:dry": "python scripts/generate_featured_images.py --dry-run"
+    "generate:images:dry": "python scripts/generate_featured_images.py --dry-run",
+    "gen:buy": "node scripts/gen-buy-redirects.mjs",
+    "check:buy": "node scripts/gen-buy-redirects.mjs --check",
+    "check:links": "node scripts/check-links.mjs"
   },
   "dependencies": {
     "@astrojs/mdx": "^5.0.3",

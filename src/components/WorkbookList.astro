@@ -1,0 +1,22 @@
+---
+// Card grid of the OGF homeschool workbooks — data from src/data/books.json (registry-synced).
+import { books } from '../data/buy';
+interface Props { placement?: string }
+---
+<div class="wb-grid">
+  {books.workbooks.map((wb) => (
+    <article class="wb-card">
+      <p class="wb-vol">Workbook {wb.volume}</p>
+      <h3><a href={`/workbooks/${wb.slug}`}>{wb.title}</a></h3>
+      <p>{wb.summary}</p>
+      <a href={`/workbooks/${wb.slug}`} class="btn btn-ghost">Details &rarr;</a>
+    </article>
+  ))}
+</div>
+<style>
+  .wb-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
+  .wb-card { border: 1px solid rgba(0,0,0,0.1); border-radius: var(--radius); padding: 1.5rem; background: var(--color-bg); }
+  .wb-card h3 { margin: 0.25rem 0 0.75rem; }
+  .wb-card h3 a { color: inherit; text-decoration: none; }
+  .wb-vol { margin: 0; font-size: 0.8rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--color-text-light); }
+</style>

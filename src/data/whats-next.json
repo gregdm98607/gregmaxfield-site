@@ -1,0 +1,21 @@
+{
+  "_note": "Homepage 'What's Next' items. Kept current by the CoS site-upkeep task (facts only; anything announcing new work waits for the Chairman). Items with show_until in the past are hidden at build time.",
+  "items": [
+    {
+      "title": "The serial's final chapter",
+      "body": "The last chapter of The Lund Covenant posts on The Unfolding Plot on November 18, 2026. Every chapter stays free to read there.",
+      "link": { "label": "Read the serial", "href": "https://gregmaxfield.substack.com" },
+      "show_until": "2026-11-18"
+    },
+    {
+      "title": "Every week on The Unfolding Plot",
+      "body": "The Substack keeps going: a new post each week, with essays, notes from the writing desk, and first looks at new fiction.",
+      "link": { "label": "Subscribe free", "href": "https://gregmaxfield.substack.com/subscribe" }
+    },
+    {
+      "title": "Homeschool Workbooks 2 and 3",
+      "body": "The Operation Granny Files homeschool series is now three volumes, adding DNA & Family Tree Building and Telling the Story.",
+      "link": { "label": "See the workbooks", "href": "/workbooks" }
+    }
+  ]
+}

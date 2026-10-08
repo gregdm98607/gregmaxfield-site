@@ -1,6 +1,9 @@
 ---
 import Layout from '../layouts/Base.astro';
 import { personNode, bookNode, faqNode, FAQ_ITEMS } from '../data/schema';
+import { buyTlc } from '../data/buy';
+import WhatsNext from '../components/WhatsNext.astro';
+import SubstackFeed from '../components/SubstackFeed.astro';
 ---
 
 <Layout
@@ -52,7 +55,7 @@ import { personNode, bookNode, faqNode, FAQ_ITEMS } from '../data/schema';
         </p>
         <p class="book-comps"><strong>For readers of:</strong> Kent Haruf, Marilynne Robinson, Denis Johnson</p>
         <div class="book-cta">
-          <a href="https://www.amazon.com/dp/B0H7F3XY9F" class="btn btn-primary" target="_blank" rel="noopener">Order on Amazon</a>
+          <a href={buyTlc('paperback', 'home-book')} class="btn btn-primary" target="_blank" rel="noopener">Order on Amazon</a>
           <a href="/the-lund-covenant" class="btn btn-secondary">About the Book</a>
         </div>
       </div>
@@ -70,9 +73,9 @@ import { personNode, bookNode, faqNode, FAQ_ITEMS } from '../data/schema';
         <a href="https://operationgrannyfiles.com" class="btn btn-ghost" target="_blank" rel="noopener">Visit OGF &rarr;</a>
       </div>
       <div class="project-card reveal">
-        <h3>Conduital</h3>
-        <p>A personal productivity system for connecting what you know to what you're building — notes, projects, and actions in one flow.</p>
-        <a href="https://conduital.com" class="btn btn-ghost" target="_blank" rel="noopener">Visit Conduital &rarr;</a>
+        <h3>Homeschool Workbooks</h3>
+        <p>Three hands-on family history workbooks for homeschool families, built from the Operation Granny Files missions.</p>
+        <a href="/workbooks" class="btn btn-ghost">See the workbooks &rarr;</a>
       </div>
       <div class="project-card reveal">
         <h3>The Unfolding Plot</h3>
@@ -99,14 +102,21 @@ import { personNode, bookNode, faqNode, FAQ_ITEMS } from '../data/schema';
         <p>
           A native of Emery County, Utah, he spent three decades in the energy industry before turning
           full-time to writing. He lives in the Pacific Northwest, where he also runs
-          <a href="https://operationgrannyfiles.substack.com" target="_blank" rel="noopener">Operation Granny Files</a>
-          and builds productivity tools at
-          <a href="https://conduital.com" target="_blank" rel="noopener">Conduital</a>.
+          <a href="https://operationgrannyfiles.substack.com" target="_blank" rel="noopener">Operation Granny Files</a>.
         </p>
       </div>
     </div>
   </div>
 </section>
+<!-- FROM THE SUBSTACK (auto-updating) -->
+<section id="latest" class="latest-section">
+  <div class="container content-narrow reveal">
+    <h2 style="text-align:center;">Latest from The Unfolding Plot</h2>
+    <SubstackFeed limit={4} />
+  </div>
+</section>
+<!-- WHAT'S NEXT -->
+<WhatsNext />
 <!-- FAQ (LLM-01) — visible answers mirror the FAQPage JSON-LD via shared FAQ_ITEMS. -->
 <section id="faq" class="faq-section">
   <div class="container content-narrow reveal">

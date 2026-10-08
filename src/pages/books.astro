@@ -1,4 +1,6 @@
 ---
+import { buyTlc } from '../data/buy';
+import WorkbookList from '../components/WorkbookList.astro';
 import Layout from '../layouts/Base.astro';
 ---
 
@@ -45,9 +47,9 @@ import Layout from '../layouts/Base.astro';
             <div class="buy-option">
               <p class="buy-option-label">Paperback, Hardcover &amp; Kindle</p>
               <div class="buy-format-links">
-                <a href="https://www.amazon.com/dp/B0H7F3XY9F" class="btn btn-primary" target="_blank" rel="noopener">Paperback on Amazon</a>
-                <a href="https://www.amazon.com/dp/B0H7J272GD" class="btn btn-secondary" target="_blank" rel="noopener">Hardcover on Amazon</a>
-                <a href="https://www.amazon.com/dp/B0H7FPRFP3" class="btn btn-secondary" target="_blank" rel="noopener">Kindle on Amazon</a>
+                <a href={buyTlc('paperback', 'books-tlc')} class="btn btn-primary" target="_blank" rel="noopener">Paperback on Amazon</a>
+                <a href={buyTlc('hardcover', 'books-tlc')} class="btn btn-secondary" target="_blank" rel="noopener">Hardcover on Amazon</a>
+                <a href={buyTlc('kindle', 'books-tlc')} class="btn btn-secondary" target="_blank" rel="noopener">Kindle on Amazon</a>
               </div>
             </div>
             <div class="buy-option">
@@ -70,6 +72,15 @@ import Layout from '../layouts/Base.astro';
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- HOMESCHOOL WORKBOOKS -->
+<section class="workbooks-on-books reveal">
+  <div class="container">
+    <h2 style="text-align:center;">Operation Granny Files Homeschool Workbooks</h2>
+    <p style="text-align:center; max-width:640px; margin:0 auto 1.5rem;">Hands-on family history for homeschool families, in three volumes.</p>
+    <WorkbookList placement="books-tlc" />
   </div>
 </section>
 
