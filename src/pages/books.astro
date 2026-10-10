@@ -1,5 +1,5 @@
 ---
-import { buyTlc } from '../data/buy';
+import { buyTlc, buyTlcBookshop } from '../data/buy';
 import WorkbookList from '../components/WorkbookList.astro';
 import Layout from '../layouts/Base.astro';
 ---
@@ -54,7 +54,7 @@ import Layout from '../layouts/Base.astro';
             </div>
             <div class="buy-option">
               <p class="buy-option-label">Paperback &amp; Wide Distribution</p>
-              <a href="#" class="btn btn-secondary">Bookshop.org</a>
+              <a href={buyTlcBookshop('paperback', 'books-tlc')} class="btn btn-secondary" target="_blank" rel="noopener">Bookshop.org</a>
             </div>
             <div class="buy-option">
               <p class="buy-option-label">Direct from the Author</p>

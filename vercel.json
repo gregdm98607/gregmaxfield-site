@@ -119,6 +119,66 @@
       "source": "/buy/wb1/workbooks",
       "destination": "https://www.amazon.com/dp/B0H3HF9PGT",
       "permanent": false
+    },
+    {
+      "source": "/buy/tlc-paperback-bookshop/home-book",
+      "destination": "https://bookshop.org/book/9798234031600",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-paperback-bookshop/tlc-page-top",
+      "destination": "https://bookshop.org/book/9798234031600",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-paperback-bookshop/tlc-page-order",
+      "destination": "https://bookshop.org/book/9798234031600",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-paperback-bookshop/books-tlc",
+      "destination": "https://bookshop.org/book/9798234031600",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-paperback-bookshop/blog",
+      "destination": "https://bookshop.org/book/9798234031600",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-paperback-bookshop/workbooks",
+      "destination": "https://bookshop.org/book/9798234031600",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-hardcover-bookshop/home-book",
+      "destination": "https://bookshop.org/book/9798240993114",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-hardcover-bookshop/tlc-page-top",
+      "destination": "https://bookshop.org/book/9798240993114",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-hardcover-bookshop/tlc-page-order",
+      "destination": "https://bookshop.org/book/9798240993114",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-hardcover-bookshop/books-tlc",
+      "destination": "https://bookshop.org/book/9798240993114",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-hardcover-bookshop/blog",
+      "destination": "https://bookshop.org/book/9798240993114",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-hardcover-bookshop/workbooks",
+      "destination": "https://bookshop.org/book/9798240993114",
+      "permanent": false
     }
   ]
 }

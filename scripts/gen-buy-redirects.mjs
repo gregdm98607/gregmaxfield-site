@@ -12,6 +12,8 @@ for (const [fmt, f] of Object.entries(books.tlc.formats)) items.push([`tlc-${fmt
 for (const wb of books.workbooks) if (wb.amazon_asin) items.push([`wb${wb.volume}`, wb.amazon_asin]);
 
 const redirects = [];
+// Non-Amazon: Bookshop.org by IngramSpark ISBN (no Amazon tag; placement kept in the path for attribution).
+const bookshop = Object.entries(books.tlc.formats).filter(([, f]) => f.isbn).map(([fmt, f]) => [`tlc-${fmt}-bookshop`, f.isbn]);
 for (const [key, asin] of items) {
   for (const [placement, tag] of placements) {
     const live = tag && !String(tag).startsWith('PLACEHOLDER');
@@ -20,6 +22,12 @@ for (const [key, asin] of items) {
       destination: `https://www.amazon.com/dp/${asin}${live ? `?${tag}` : ''}`,
       permanent: false,
     });
+  }
+}
+
+for (const [key, isbn] of bookshop) {
+  for (const [placement] of placements) {
+    redirects.push({ source: `/buy/${key}/${placement}`, destination: `https://bookshop.org/book/${isbn}`, permanent: false });
   }
 }
 

@@ -1,6 +1,7 @@
 {
   "_source": "Book facts for gregmaxfield.com. Workbook facts are synced from the vault's 05_Projects/Operation_Granny_Files/OGF_Content_Registry.md (Books & Products + IngramSpark tables) by the CoS site-upkeep task; edit the registry, not this file. After editing, run `npm run gen:buy` to regenerate the /buy redirects in vercel.json.",
   "_synced": "2026-10-07",
+  "_bookshop_note": "TLC formats with an isbn (IngramSpark ISBN, not the KDP one) also get /buy/tlc-<format>-bookshop/<placement> -> bookshop.org/book/<isbn>. Verified live on Bookshop.org 2026-10-09 (PB $16.99, HC $26.99).",
   "attribution": {
     "_note": "Amazon Attribution tag query strings, one per placement (e.g. \"maas=maas_adg_XXXX&ref_=aa_maas\"). PLACEHOLDER values are skipped — the redirect then goes to the clean Amazon URL. The Chairman creates the real tags once in Amazon Attribution; paste each here and run `npm run gen:buy`.",
     "home-book": "PLACEHOLDER",
@@ -13,8 +14,8 @@
   "tlc": {
     "title": "The Lund Covenant",
     "formats": {
-      "paperback": { "label": "Paperback", "asin": "B0H7F3XY9F" },
-      "hardcover": { "label": "Hardcover", "asin": "B0H7J272GD" },
+      "paperback": { "label": "Paperback", "asin": "B0H7F3XY9F", "isbn": "9798234031600" },
+      "hardcover": { "label": "Hardcover", "asin": "B0H7J272GD", "isbn": "9798240993114" },
       "kindle": { "label": "Kindle", "asin": "B0H7FPRFP3" }
     }
   },
