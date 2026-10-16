@@ -121,6 +121,66 @@
       "permanent": false
     },
     {
+      "source": "/buy/wb2/home-book",
+      "destination": "https://www.amazon.com/dp/B0HKQ7W4VZ",
+      "permanent": false
+    },
+    {
+      "source": "/buy/wb2/tlc-page-top",
+      "destination": "https://www.amazon.com/dp/B0HKQ7W4VZ",
+      "permanent": false
+    },
+    {
+      "source": "/buy/wb2/tlc-page-order",
+      "destination": "https://www.amazon.com/dp/B0HKQ7W4VZ",
+      "permanent": false
+    },
+    {
+      "source": "/buy/wb2/books-tlc",
+      "destination": "https://www.amazon.com/dp/B0HKQ7W4VZ",
+      "permanent": false
+    },
+    {
+      "source": "/buy/wb2/blog",
+      "destination": "https://www.amazon.com/dp/B0HKQ7W4VZ",
+      "permanent": false
+    },
+    {
+      "source": "/buy/wb2/workbooks",
+      "destination": "https://www.amazon.com/dp/B0HKQ7W4VZ",
+      "permanent": false
+    },
+    {
+      "source": "/buy/wb3/home-book",
+      "destination": "https://www.amazon.com/dp/B0HKC4ZVYD",
+      "permanent": false
+    },
+    {
+      "source": "/buy/wb3/tlc-page-top",
+      "destination": "https://www.amazon.com/dp/B0HKC4ZVYD",
+      "permanent": false
+    },
+    {
+      "source": "/buy/wb3/tlc-page-order",
+      "destination": "https://www.amazon.com/dp/B0HKC4ZVYD",
+      "permanent": false
+    },
+    {
+      "source": "/buy/wb3/books-tlc",
+      "destination": "https://www.amazon.com/dp/B0HKC4ZVYD",
+      "permanent": false
+    },
+    {
+      "source": "/buy/wb3/blog",
+      "destination": "https://www.amazon.com/dp/B0HKC4ZVYD",
+      "permanent": false
+    },
+    {
+      "source": "/buy/wb3/workbooks",
+      "destination": "https://www.amazon.com/dp/B0HKC4ZVYD",
+      "permanent": false
+    },
+    {
       "source": "/buy/tlc-paperback-bookshop/home-book",
       "destination": "https://bookshop.org/book/9798234031600",
       "permanent": false
