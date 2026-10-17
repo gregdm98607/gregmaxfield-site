@@ -5,7 +5,7 @@ const base = (process.argv[2] && !process.argv[2].startsWith('--')) ? process.ar
 const jsonOut = process.argv.includes('--json') ? process.argv[process.argv.indexOf('--json') + 1] : null;
 const UA = { 'user-agent': 'Mozilla/5.0 (gregmaxfield.com link check)' };
 // Hosts that block bots (403/503/999) are reported as "unverified", never as broken.
-const BOT_WALLED = /(^|\.)(amazon\.com|amzn\.to|goodreads\.com|linkedin\.com|x\.com|twitter\.com|kit\.com)$/;
+const BOT_WALLED = /(^|\.)(amazon\.com|amzn\.to|goodreads\.com|linkedin\.com|x\.com|twitter\.com|kit\.com|bookshop\.org)$/;
 
 const get = (u, method = 'GET') => fetch(u, { method, headers: UA, redirect: 'follow', signal: AbortSignal.timeout(20000) });
 
@@ -29,15 +29,16 @@ for (const p of pages) {
 
 const results = [];
 for (const [u, on] of links) {
-  let status, note = '';
+  let status, note = '', finalUrl = u;
   try {
     let r = await get(u, 'HEAD');
     if (r.status === 405 || r.status === 403 || r.status === 404) r = await get(u, 'GET');
     status = r.status;
+    if (r.url) finalUrl = r.url;
   } catch (e) { status = 0; note = String(e.cause?.code || e.name); }
-  const host = new URL(u).hostname;
+  const host = new URL(finalUrl).hostname; // bot-wall test on where the link actually lands (W-CTO-183)
   const verdict = status >= 200 && status < 400 ? 'ok' : (BOT_WALLED.test(host) && [0, 403, 429, 503, 999].includes(status) ? 'unverified' : 'broken');
-  results.push({ url: u, status, verdict, note, on: [...on] });
+  results.push({ url: u, final: finalUrl, status, verdict, note, on: [...on] });
 }
 const broken = results.filter((r) => r.verdict === 'broken');
 const summary = { checked_at: new Date().toISOString(), base, pages: pages.size, links: results.length, broken: broken.length, unverified: results.filter((r) => r.verdict === 'unverified').length, broken_links: broken };
