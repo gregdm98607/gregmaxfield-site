@@ -3,6 +3,7 @@
 // depth lives on operationgrannyfiles.com.
 import Layout from '../../layouts/Base.astro';
 import { books, buyWorkbook } from '../../data/buy';
+import gumroad from '../../data/gumroad.json';
 
 export function getStaticPaths() {
   return books.workbooks.map((wb) => ({ params: { slug: wb.slug }, props: { wb } }));
@@ -10,6 +11,7 @@ export function getStaticPaths() {
 const { wb } = Astro.props;
 const fullTitle = `${wb.title}: Operation Granny Files Homeschool Workbook ${wb.volume}`;
 const isbn13 = wb.isbn;
+const pdfUrl = (gumroad.workbooks as Record<string, string>)[String(wb.volume)];
 const jsonLd = [{
   '@type': 'Book',
   name: fullTitle,
@@ -45,6 +47,7 @@ const jsonLd = [{
     {wb.amazon_asin
       ? <a href={buyWorkbook(wb.volume, 'workbooks')} class="btn btn-primary" target="_blank" rel="noopener">Buy on Amazon</a>
       : <p class="wb-note">Available in paperback — any bookstore can order it by ISBN {isbn13}.</p>}
+    {pdfUrl && <a href={pdfUrl} class="btn btn-secondary" target="_blank" rel="noopener">Printable PDF · ${gumroad.price_each}</a>}
     <a href={wb.ogf_url} class="btn btn-secondary" target="_blank" rel="noopener">Free sample &amp; teaching guide at Operation Granny Files &rarr;</a>
   </div>
   <p style="margin-top:2rem;"><a href="/workbooks">&larr; All three workbooks</a></p>

@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Base.astro';
 import WorkbookList from '../../components/WorkbookList.astro';
+import gumroad from '../../data/gumroad.json';
 ---
 <Layout
   title="Homeschool Workbooks — Greg Maxfield"
@@ -14,6 +15,10 @@ import WorkbookList from '../../components/WorkbookList.astro';
 </section>
 <section class="container" style="padding-bottom:3rem;">
   <WorkbookList />
+  <p style="text-align:center; margin-top:2rem;">
+    All three as printable PDFs: ${gumroad.bundle.price} for the set, ${gumroad.price_each} each.<br />
+    <a href={gumroad.bundle.url} class="btn btn-primary" target="_blank" rel="noopener" style="margin-top:0.75rem;">Get the Complete Set on Gumroad</a>
+  </p>
   <p style="text-align:center; margin-top:2rem;">
     Free sample units, companion pages, and teaching guides live at
     <a href="https://operationgrannyfiles.com/homeschool" target="_blank" rel="noopener">operationgrannyfiles.com</a>.

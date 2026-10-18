@@ -1,0 +1,10 @@
+{
+  "_source": "OGF printable PDF editions on Gumroad (ruling chat-cro-ogf-gumroad-go-live-20261017; CMO W-CMO-084). Kept apart from books.json so the registry sync never overwrites it. Prices as ruled by the Chairman 2026-10-16.",
+  "price_each": "9.99",
+  "bundle": { "url": "https://operationgrannyfiles.gumroad.com/l/complete-set", "price": "24.99" },
+  "workbooks": {
+    "1": "https://operationgrannyfiles.gumroad.com/l/workbook-1",
+    "2": "https://operationgrannyfiles.gumroad.com/l/workbook-2",
+    "3": "https://operationgrannyfiles.gumroad.com/l/workbook-3"
+  }
+}
