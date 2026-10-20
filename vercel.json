@@ -240,5 +240,11 @@
       "destination": "https://bookshop.org/book/9798240993114",
       "permanent": false
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/sitemap.xml",
+      "destination": "/sitemap-index.xml"
+    }
   ]
 }
