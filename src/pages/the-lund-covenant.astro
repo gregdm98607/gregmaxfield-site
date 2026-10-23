@@ -14,6 +14,29 @@ const SHOW_PRAISE = false;
 	jsonLd={[personNode(), bookNode()]}
 >
 
+<!-- TLC COUNTDOWN BANNER (CMO W-CMO-150/155). Shows only 2026-10-28 00:00 PT .. 2026-11-03 23:59 PT
+     via the client-side date gate below; hidden otherwise. Remove in the first upkeep run after 11-04. -->
+<div id="countdown-banner" class="countdown-banner" hidden
+  data-start="2026-10-28T07:00:00Z" data-end="2026-11-04T06:59:59Z">
+  <p><strong>$0.99 on Kindle through Nov 3</strong> &mdash; For readers of Kent Haruf and Wallace Stegner.
+  <a href={buyTlc('kindle', 'tlc-page-order')} class="countdown-banner-btn" target="_blank" rel="noopener"><strong>Get the Kindle edition</strong></a></p>
+</div>
+<script is:inline>
+  (function () {
+    var b = document.getElementById('countdown-banner');
+    if (!b) return;
+    var now = Date.now();
+    if (now >= Date.parse(b.dataset.start) && now <= Date.parse(b.dataset.end)) b.hidden = false;
+  })();
+</script>
+<style>
+  .countdown-banner { background: var(--color-accent); color: #fff; text-align: center; padding: 0.75rem 1rem; font-size: 1rem; line-height: 1.5; }
+  .countdown-banner p { margin: 0; max-width: 100%; overflow-wrap: anywhere; }
+  .countdown-banner-btn { display: inline-block; margin-left: 0.5rem; padding: 0.2rem 0.8rem; background: #fff; color: var(--color-text); border-radius: 999px; text-decoration: none; white-space: nowrap; }
+  .countdown-banner-btn:hover { background: var(--color-surface); color: var(--color-text); }
+  .countdown-banner[hidden] { display: none; }
+</style>
+
 <!-- BOOK HERO -->
 <section class="book-page-hero">
   <img
@@ -26,6 +49,7 @@ const SHOW_PRAISE = false;
   />
   <h1>The Lund Covenant</h1>
   <p class="subtitle">A Novel</p>
+  <p class="lead-line"><em>For readers of Kent Haruf and Wallace Stegner.</em></p>
   <p class="byline">by Greg Maxfield</p>
   <p class="release-badge" style="display:inline-block; margin:0.75rem 0 1rem; padding:0.4rem 1rem; border:1px solid rgba(0,0,0,0.15); border-radius:999px; font-size:0.95rem; letter-spacing:0.04em; text-transform:uppercase;">Available Now</p>
   <div class="buy-buttons">
