@@ -31,6 +31,11 @@
       "permanent": false
     },
     {
+      "source": "/buy/tlc-paperback/tup-chapter",
+      "destination": "https://www.amazon.com/dp/B0H7F3XY9F?maas=maas_adg_62C284582BE41F2EF5D866FDD5B185EB_afap_abs&ref_=aa_maas&tag=maas",
+      "permanent": false
+    },
+    {
       "source": "/buy/tlc-hardcover/home-book",
       "destination": "https://www.amazon.com/dp/B0H7J272GD?maas=maas_adg_0040F2A933E1CBC83195062C4EEC8E86_afap_abs&ref_=aa_maas&tag=maas",
       "permanent": false
@@ -58,6 +63,11 @@
     {
       "source": "/buy/tlc-hardcover/workbooks",
       "destination": "https://www.amazon.com/dp/B0H7J272GD?maas=maas_adg_EB0CA1EF107D860216233C51F9614C0C_afap_abs&ref_=aa_maas&tag=maas",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-hardcover/tup-chapter",
+      "destination": "https://www.amazon.com/dp/B0H7J272GD?maas=maas_adg_62C284582BE41F2EF5D866FDD5B185EB_afap_abs&ref_=aa_maas&tag=maas",
       "permanent": false
     },
     {
@@ -91,6 +101,11 @@
       "permanent": false
     },
     {
+      "source": "/buy/tlc-kindle/tup-chapter",
+      "destination": "https://www.amazon.com/dp/B0H7FPRFP3?maas=maas_adg_62C284582BE41F2EF5D866FDD5B185EB_afap_abs&ref_=aa_maas&tag=maas",
+      "permanent": false
+    },
+    {
       "source": "/buy/wb1/home-book",
       "destination": "https://www.amazon.com/dp/B0H3HF9PGT?maas=maas_adg_0040F2A933E1CBC83195062C4EEC8E86_afap_abs&ref_=aa_maas&tag=maas",
       "permanent": false
@@ -118,6 +133,11 @@
     {
       "source": "/buy/wb1/workbooks",
       "destination": "https://www.amazon.com/dp/B0H3HF9PGT?maas=maas_adg_EB0CA1EF107D860216233C51F9614C0C_afap_abs&ref_=aa_maas&tag=maas",
+      "permanent": false
+    },
+    {
+      "source": "/buy/wb1/tup-chapter",
+      "destination": "https://www.amazon.com/dp/B0H3HF9PGT?maas=maas_adg_62C284582BE41F2EF5D866FDD5B185EB_afap_abs&ref_=aa_maas&tag=maas",
       "permanent": false
     },
     {
@@ -151,6 +171,11 @@
       "permanent": false
     },
     {
+      "source": "/buy/wb2/tup-chapter",
+      "destination": "https://www.amazon.com/dp/B0HKQ7W4VZ?maas=maas_adg_62C284582BE41F2EF5D866FDD5B185EB_afap_abs&ref_=aa_maas&tag=maas",
+      "permanent": false
+    },
+    {
       "source": "/buy/wb3/home-book",
       "destination": "https://www.amazon.com/dp/B0HKC4ZVYD?maas=maas_adg_0040F2A933E1CBC83195062C4EEC8E86_afap_abs&ref_=aa_maas&tag=maas",
       "permanent": false
@@ -178,6 +203,11 @@
     {
       "source": "/buy/wb3/workbooks",
       "destination": "https://www.amazon.com/dp/B0HKC4ZVYD?maas=maas_adg_EB0CA1EF107D860216233C51F9614C0C_afap_abs&ref_=aa_maas&tag=maas",
+      "permanent": false
+    },
+    {
+      "source": "/buy/wb3/tup-chapter",
+      "destination": "https://www.amazon.com/dp/B0HKC4ZVYD?maas=maas_adg_62C284582BE41F2EF5D866FDD5B185EB_afap_abs&ref_=aa_maas&tag=maas",
       "permanent": false
     },
     {
@@ -211,6 +241,11 @@
       "permanent": false
     },
     {
+      "source": "/buy/tlc-paperback-bookshop/tup-chapter",
+      "destination": "https://bookshop.org/book/9798234031600",
+      "permanent": false
+    },
+    {
       "source": "/buy/tlc-hardcover-bookshop/home-book",
       "destination": "https://bookshop.org/book/9798240993114",
       "permanent": false
@@ -237,6 +272,11 @@
     },
     {
       "source": "/buy/tlc-hardcover-bookshop/workbooks",
+      "destination": "https://bookshop.org/book/9798240993114",
+      "permanent": false
+    },
+    {
+      "source": "/buy/tlc-hardcover-bookshop/tup-chapter",
       "destination": "https://bookshop.org/book/9798240993114",
       "permanent": false
     }
