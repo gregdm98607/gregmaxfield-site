@@ -32,7 +32,7 @@
     },
     {
       "source": "/buy/tlc-paperback/tup-chapter",
-      "destination": "https://www.amazon.com/dp/B0H7F3XY9F?maas=maas_adg_62C284582BE41F2EF5D866FDD5B185EB_afap_abs&ref_=aa_maas&tag=maas",
+      "destination": "https://www.amazon.com/dp/B0H7F3XY9F?maas=maas_adg_77FDA15065FC477209F45FAF928245CE_afap_abs&ref_=aa_maas&tag=maas",
       "permanent": false
     },
     {
@@ -67,7 +67,7 @@
     },
     {
       "source": "/buy/tlc-hardcover/tup-chapter",
-      "destination": "https://www.amazon.com/dp/B0H7J272GD?maas=maas_adg_62C284582BE41F2EF5D866FDD5B185EB_afap_abs&ref_=aa_maas&tag=maas",
+      "destination": "https://www.amazon.com/dp/B0H7J272GD?maas=maas_adg_77FDA15065FC477209F45FAF928245CE_afap_abs&ref_=aa_maas&tag=maas",
       "permanent": false
     },
     {
@@ -102,7 +102,7 @@
     },
     {
       "source": "/buy/tlc-kindle/tup-chapter",
-      "destination": "https://www.amazon.com/dp/B0H7FPRFP3?maas=maas_adg_62C284582BE41F2EF5D866FDD5B185EB_afap_abs&ref_=aa_maas&tag=maas",
+      "destination": "https://www.amazon.com/dp/B0H7FPRFP3?maas=maas_adg_77FDA15065FC477209F45FAF928245CE_afap_abs&ref_=aa_maas&tag=maas",
       "permanent": false
     },
     {
@@ -137,7 +137,7 @@
     },
     {
       "source": "/buy/wb1/tup-chapter",
-      "destination": "https://www.amazon.com/dp/B0H3HF9PGT?maas=maas_adg_62C284582BE41F2EF5D866FDD5B185EB_afap_abs&ref_=aa_maas&tag=maas",
+      "destination": "https://www.amazon.com/dp/B0H3HF9PGT?maas=maas_adg_77FDA15065FC477209F45FAF928245CE_afap_abs&ref_=aa_maas&tag=maas",
       "permanent": false
     },
     {
@@ -172,7 +172,7 @@
     },
     {
       "source": "/buy/wb2/tup-chapter",
-      "destination": "https://www.amazon.com/dp/B0HKQ7W4VZ?maas=maas_adg_62C284582BE41F2EF5D866FDD5B185EB_afap_abs&ref_=aa_maas&tag=maas",
+      "destination": "https://www.amazon.com/dp/B0HKQ7W4VZ?maas=maas_adg_77FDA15065FC477209F45FAF928245CE_afap_abs&ref_=aa_maas&tag=maas",
       "permanent": false
     },
     {
@@ -207,7 +207,7 @@
     },
     {
       "source": "/buy/wb3/tup-chapter",
-      "destination": "https://www.amazon.com/dp/B0HKC4ZVYD?maas=maas_adg_62C284582BE41F2EF5D866FDD5B185EB_afap_abs&ref_=aa_maas&tag=maas",
+      "destination": "https://www.amazon.com/dp/B0HKC4ZVYD?maas=maas_adg_77FDA15065FC477209F45FAF928245CE_afap_abs&ref_=aa_maas&tag=maas",
       "permanent": false
     },
     {

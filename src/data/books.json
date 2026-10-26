@@ -3,14 +3,14 @@
   "_synced": "2026-10-16",
   "_bookshop_note": "TLC formats with an isbn (IngramSpark ISBN, not the KDP one) also get /buy/tlc-<format>-bookshop/<placement> -> bookshop.org/book/<isbn>. Verified live on Bookshop.org 2026-10-09 (PB $16.99, HC $26.99).",
   "attribution": {
-    "_note": "Amazon Attribution tag query strings, one per placement (e.g. \"maas=maas_adg_XXXX&ref_=aa_maas\"). PLACEHOLDER values are skipped — the redirect then goes to the clean Amazon URL. The Chairman creates the real tags once in Amazon Attribution; paste each here and run `npm run gen:buy`. Live 2026-10-21 (CRO W-CRO-049): campaign gmsite (581871395072308994); ad groups gmsite-home = home-book + blog, gmsite-tlcpage = tlc-page-top + tlc-page-order, gmsite-books = books-tlc + workbooks. blog shares gmsite-home until a gmsite-blog ad group exists. tup-chapter (CMO W-CMO-163, 2026-10-22) = TUP chapter-end links, interim gmasub-inline (campaign gmasub) until the gmasub-tupch ad group exists.",
+    "_note": "Amazon Attribution tag query strings, one per placement (e.g. \"maas=maas_adg_XXXX&ref_=aa_maas\"). PLACEHOLDER values are skipped — the redirect then goes to the clean Amazon URL. The Chairman creates the real tags once in Amazon Attribution; paste each here and run `npm run gen:buy`. Live 2026-10-21 (CRO W-CRO-049): campaign gmsite (581871395072308994); ad groups gmsite-home = home-book + blog, gmsite-tlcpage = tlc-page-top + tlc-page-order, gmsite-books = books-tlc + workbooks. blog shares gmsite-home until a gmsite-blog ad group exists. tup-chapter (CMO W-CMO-163, 2026-10-22) = TUP chapter-end links, ad group gmasub-tupch (campaign gmasub, created 2026-10-23 W-CRO-133; swapped in 2026-10-26 CTO W-CTO-387).",
     "home-book": "maas=maas_adg_0040F2A933E1CBC83195062C4EEC8E86_afap_abs&ref_=aa_maas&tag=maas",
     "tlc-page-top": "maas=maas_adg_8758399208CE0AA48EE9026F15B6B97D_afap_abs&ref_=aa_maas&tag=maas",
     "tlc-page-order": "maas=maas_adg_8758399208CE0AA48EE9026F15B6B97D_afap_abs&ref_=aa_maas&tag=maas",
     "books-tlc": "maas=maas_adg_EB0CA1EF107D860216233C51F9614C0C_afap_abs&ref_=aa_maas&tag=maas",
     "blog": "maas=maas_adg_0040F2A933E1CBC83195062C4EEC8E86_afap_abs&ref_=aa_maas&tag=maas",
     "workbooks": "maas=maas_adg_EB0CA1EF107D860216233C51F9614C0C_afap_abs&ref_=aa_maas&tag=maas",
-    "tup-chapter": "maas=maas_adg_62C284582BE41F2EF5D866FDD5B185EB_afap_abs&ref_=aa_maas&tag=maas"
+    "tup-chapter": "maas=maas_adg_77FDA15065FC477209F45FAF928245CE_afap_abs&ref_=aa_maas&tag=maas"
   },
   "tlc": {
     "title": "The Lund Covenant",
