@@ -54,12 +54,8 @@ const { title, description, image, imageAlt, noindex, jsonLd } = Astro.props;
 
 		<!-- Unified Kit form handler (B1 + B2 — survives view transitions, fires GA4 subscribe event).
 		     Replaces per-page copies in index, books, and the-lund-covenant. Single source of truth.
-		     NOTE (R3): public V3 key — consolidate via serverless proxy later. -->
+		     The Kit key lives server-side (KIT_API_KEY Vercel env); the form posts to /api/kit-subscribe. W-CTO-371. -->
 		<script>
-			const KIT_API_KEY = '1DPMCQ3iN_j0o-HFQ_sRLA';
-			const TAG_GMA_NEWSLETTER = 18895877;
-			const TAG_TLC_LAUNCH = 18895878;
-
 			document.addEventListener('astro:page-load', () => {
 				document.querySelectorAll<HTMLFormElement>('.kit-form').forEach(form => {
 					if (form.dataset.kitBound) return;
@@ -86,24 +82,11 @@ const { title, description, image, imageAlt, noindex, jsonLd } = Astro.props;
 						if (errorEl) errorEl.style.display = 'none';
 
 						try {
-							const body = JSON.stringify({
-								api_key: KIT_API_KEY,
-								email,
-								first_name: firstName || undefined,
+							const res1 = await fetch('/api/kit-subscribe', {
+								method: 'POST',
+								headers: { 'Content-Type': 'application/json' },
+								body: JSON.stringify({ email, first_name: firstName || undefined }),
 							});
-
-							const [res1] = await Promise.all([
-								fetch(`https://api.convertkit.com/v3/tags/${TAG_GMA_NEWSLETTER}/subscribe`, {
-									method: 'POST',
-									headers: { 'Content-Type': 'application/json' },
-									body,
-								}),
-								fetch(`https://api.convertkit.com/v3/tags/${TAG_TLC_LAUNCH}/subscribe`, {
-									method: 'POST',
-									headers: { 'Content-Type': 'application/json' },
-									body,
-								}),
-							]);
 
 							if (res1.ok) {
 								form.style.display = 'none';
