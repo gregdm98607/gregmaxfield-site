@@ -4,6 +4,7 @@
 // references use @id so entities are stated once and linked everywhere.
 
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { buyTlc } from './buy';
 
 export const SITE_URL = 'https://www.gregmaxfield.com';
 export const AMAZON_URL =
@@ -160,6 +161,8 @@ export const blogPostingNode = (post: BlogPostingInput): Node => ({
 export interface FaqItem {
 	question: string;
 	answer: string;
+	/** Visible-only links under the answer (not in the FAQPage JSON-LD). W-CMO-282 / W-CTO-672. */
+	links?: { label: string; href: string }[];
 }
 
 /** FAQPage node (LLM-01). */
@@ -206,5 +209,10 @@ export const FAQ_ITEMS: FaqItem[] = [
 		answer:
 			'The Lund Covenant is available now in paperback, hardcover, and Kindle editions on Amazon, ' +
 			'and can also be read chapter by chapter as it serializes on Substack.',
+		links: [
+			{ label: 'Paperback', href: buyTlc('paperback', 'home-faq') },
+			{ label: 'Kindle', href: buyTlc('kindle', 'home-faq') },
+			{ label: 'Hardcover', href: buyTlc('hardcover', 'home-faq') },
+		],
 	},
 ];

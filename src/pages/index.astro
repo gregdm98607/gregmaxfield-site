@@ -126,7 +126,9 @@ import SubstackFeed from '../components/SubstackFeed.astro';
       {FAQ_ITEMS.map((item) => (
         <div class="faq-item">
           <dt>{item.question}</dt>
-          <dd>{item.answer}</dd>
+          <dd>{item.answer}{item.links && (
+            <span class="faq-links">{item.links.map((l, i) => (<>{i > 0 && ' · '}<a href={l.href} target="_blank" rel="noopener">{l.label}</a></>))}</span>
+          )}</dd>
         </div>
       ))}
     </dl>
@@ -266,6 +268,7 @@ import SubstackFeed from '../components/SubstackFeed.astro';
   }
 
   /* FAQ (LLM-01) */
+  .faq-links { display: block; margin-top: 0.5rem; font-weight: 600; }
   .faq-list {
     margin: 2rem auto 0;
   }
