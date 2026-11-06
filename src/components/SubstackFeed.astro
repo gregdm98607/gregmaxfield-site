@@ -46,11 +46,12 @@ const fmt = (d: string) => new Date(d).toLocaleDateString('en-US', { year: 'nume
     });
   });
 </script>
-<style>
-  .sf-list { display: block; list-style: none; padding: 0; margin: 1.5rem 0 0; }
-  .sf-list li { width: 100%; margin: 0; text-align: left; display: flex; justify-content: space-between; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid rgba(0,0,0,0.08); }
-  .sf-title { font-weight: 600; text-decoration: none; }
-  .sf-date { color: var(--color-text-light); font-size: 0.9rem; white-space: nowrap; }
-  .sf-more { text-align: center; margin-top: 1rem; }
-  @media (max-width: 480px) { .sf-list li { flex-direction: column; gap: 0.25rem; } }
+<style is:global>
+  /* is:global: the browser refresh rebuilds the list without Astro's scoped attribute (W-CTO-700) */
+  .substack-feed .sf-list { display: block; list-style: none; padding: 0; margin: 1.5rem 0 0; }
+  .substack-feed .sf-list li { width: 100%; margin: 0; text-align: left; display: flex; justify-content: space-between; align-items: baseline; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .substack-feed .sf-title { font-weight: 600; text-decoration: none; }
+  .substack-feed .sf-date { color: var(--color-text-light); font-size: 0.9rem; white-space: nowrap; flex-shrink: 0; }
+  .substack-feed .sf-more { text-align: center; margin-top: 1rem; }
+  @media (max-width: 480px) { .substack-feed .sf-list li { flex-direction: column; gap: 0.25rem; } }
 </style>
