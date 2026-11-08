@@ -25,7 +25,7 @@ export function parseFeed(xml, limit = 5) {
 export default async function handler(req, res) {
   const limit = Math.min(Math.max(parseInt(req.query?.limit ?? '5', 10) || 5, 1), 10);
   try {
-    const r = await fetch(FEED, { headers: { 'user-agent': 'gregmaxfield.com feed widget' } });
+    const r = await fetch(FEED, { headers: { 'user-agent': 'gregmaxfield.com feed widget', 'accept-encoding': 'gzip' } });
     if (!r.ok) throw new Error(`feed ${r.status}`);
     const posts = parseFeed(await r.text(), limit);
     res.setHeader('Cache-Control', 's-maxage=3600, stale-while-revalidate=86400');

@@ -22,7 +22,7 @@ export default async function handler(req, res) {
   const payload = JSON.stringify({ api_key: key, email, first_name: firstName });
   const results = await Promise.all(TAGS.map((t) =>
     fetch(`https://api.convertkit.com/v3/tags/${t}/subscribe`, {
-      method: 'POST', headers: { 'Content-Type': 'application/json' }, body: payload,
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'Accept-Encoding': 'gzip' }, body: payload,
     }).then((r) => r.ok).catch(() => false)
   ));
   res.setHeader('Cache-Control', 'no-store');
