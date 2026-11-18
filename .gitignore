@@ -28,3 +28,6 @@ pnpm-debug.log*
 
 # auto-sync / PR coordination sentinel — never commit (see Git Auto Push + Auto Deploy Monitor)
 .autosync-pause
+# build/preview logs (W-CTO-890)
+*.log
+.*.log
