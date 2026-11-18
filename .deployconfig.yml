@@ -18,5 +18,5 @@ config_files:
 build_command: npm run build
 staging_branch: preview
 production_branch: master
-weekend_deploys: false
+weekend_deploys: true
 check_frequency: daily
