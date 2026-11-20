@@ -9,6 +9,8 @@ import { buyTlc } from './buy';
 export const SITE_URL = 'https://www.gregmaxfield.com';
 export const AMAZON_URL =
 	'https://www.amazon.com/dp/B0H7F3XY9F';
+// Hardcover edition (its own ASIN, W-CMO-439 / W-CTO-943).
+export const HARDCOVER_URL = 'https://www.amazon.com/dp/B0H7J272GD';
 // Kindle edition (its own ASIN).
 export const KINDLE_URL = 'https://www.amazon.com/dp/B0H7FPRFP3';
 
@@ -78,13 +80,12 @@ export const bookNode = (): Node => ({
 		'A photojournalist returns to Castle Dale, Utah after his father’s death and uncovers a ' +
 		'hidden network of desert humanitarian aid that someone has methodically destroyed. A novel ' +
 		'about moral inheritance, complicity, and bearing witness.',
-	// Default offer surfaced at the work level (paperback price).
+	// Default offer at the work level. Price removed 2026-11-20 pending CRO confirmation of
+	// per-format ISBN + price (W-CMO-439 s2 item 3, W-CTO-943).
 	offers: {
 		'@type': 'Offer',
 		url: AMAZON_URL,
 		availability: 'https://schema.org/InStock',
-		price: '16.99', // paperback, confirmed from launch/GTM plan
-		priceCurrency: 'USD',
 	},
 	// Per-format editions (SEO-01 Book ISBNs). Kindle uses an ASIN, not an ISBN.
 	workExample: [
@@ -98,7 +99,7 @@ export const bookNode = (): Node => ({
 			author: { '@id': PERSON_ID },
 			offers: {
 				'@type': 'Offer',
-				url: AMAZON_URL,
+				url: HARDCOVER_URL,
 				availability: 'https://schema.org/InStock',
 			},
 		},
@@ -114,8 +115,6 @@ export const bookNode = (): Node => ({
 				'@type': 'Offer',
 				url: AMAZON_URL,
 				availability: 'https://schema.org/InStock',
-				price: '16.99',
-				priceCurrency: 'USD',
 			},
 		},
 		{
@@ -214,5 +213,38 @@ export const FAQ_ITEMS: FaqItem[] = [
 			{ label: 'Kindle', href: buyTlc('kindle', 'home-faq') },
 			{ label: 'Hardcover', href: buyTlc('hardcover', 'home-faq') },
 		],
+	},
+];
+
+// TLC page FAQ (CMO W-CMO-439 s3, copy word for word; no prices). Visible block on
+// /the-lund-covenant and its FAQPage JSON-LD both read this list (W-CTO-943).
+export const TLC_FAQ_ITEMS: FaqItem[] = [
+	{
+		question: 'What is The Lund Covenant about?',
+		answer:
+			"A photojournalist, Gill Lund, returns to Castle Dale, Utah, after his father's death. He finds that his father had been tending water caches for desert travelers in the San Rafael Swell, and that someone has been destroying them. It is a novel about moral inheritance, complicity and bearing witness.",
+	},
+	{
+		question: 'What kind of book is it?',
+		answer:
+			'Literary fiction with a suspense spine, set in the high desert of Emery County, Utah. It is for readers of Kent Haruf and Wallace Stegner.',
+	},
+	{
+		question: 'Which books is it like?',
+		answer:
+			"Kent Haruf's Plainsong, Ron Rash's Serena, Marilynne Robinson's Gilead and Paulette Jiles's News of the World.",
+	},
+	{
+		question: 'How long is it, and what formats are there?',
+		answer: 'About 82,000 words. It comes in paperback, hardcover and Kindle.',
+	},
+	{
+		question: 'Where can I buy it?',
+		answer: 'On Amazon, or from independent bookstores through Bookshop.org.',
+	},
+	{
+		question: 'Who is the author?',
+		answer:
+			'Greg Maxfield writes literary fiction grounded in the American West. He grew up around Castle Dale, Utah, where his family helped settle the Emery County high desert.',
 	},
 ];

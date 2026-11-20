@@ -1,7 +1,7 @@
 ---
 import { buyTlc, buyTlcBookshop } from '../data/buy';
 import Layout from '../layouts/Base.astro';
-import { bookNode, personNode } from '../data/schema';
+import { bookNode, personNode, faqNode, TLC_FAQ_ITEMS } from '../data/schema';
 
 // CTO review B4 — hide placeholder "Praise" until the first real ARC endorsement lands.
 const SHOW_PRAISE = false;
@@ -11,31 +11,10 @@ const SHOW_PRAISE = false;
 	title="The Lund Covenant — Greg Maxfield"
 	description="A literary novel of the American West, set in Emery County, Utah. When Gill Lund returns to Castle Dale, Utah after his father's death, he intends to stay three days."
 	image="/images/og-image.png"
-	jsonLd={[personNode(), bookNode()]}
+	jsonLd={[personNode(), bookNode(), faqNode(TLC_FAQ_ITEMS)]}
 >
 
-<!-- TLC COUNTDOWN BANNER (CMO W-CMO-150/155). Shows only 2026-10-28 00:00 PT .. 2026-11-03 23:59 PT
-     via the client-side date gate below; hidden otherwise. Remove in the first upkeep run after 11-04. -->
-<div id="countdown-banner" class="countdown-banner" hidden
-  data-start="2026-10-28T07:00:00Z" data-end="2026-11-04T06:59:59Z">
-  <p><strong>$0.99 on Kindle through Nov 3</strong> &mdash; For readers of Kent Haruf and Wallace Stegner.
-  <a href={buyTlc('kindle', 'tlc-page-order')} class="countdown-banner-btn" target="_blank" rel="noopener"><strong>Get the Kindle edition</strong></a></p>
-</div>
-<script is:inline>
-  (function () {
-    var b = document.getElementById('countdown-banner');
-    if (!b) return;
-    var now = Date.now();
-    if (now >= Date.parse(b.dataset.start) && now <= Date.parse(b.dataset.end)) b.hidden = false;
-  })();
-</script>
-<style>
-  .countdown-banner { background: var(--color-accent); color: #fff; text-align: center; padding: 0.75rem 1rem; font-size: 1rem; line-height: 1.5; }
-  .countdown-banner p { margin: 0; max-width: 100%; overflow-wrap: anywhere; }
-  .countdown-banner-btn { display: inline-block; margin-left: 0.5rem; padding: 0.2rem 0.8rem; background: #fff; color: var(--color-text); border-radius: 999px; text-decoration: none; white-space: nowrap; }
-  .countdown-banner-btn:hover { background: var(--color-surface); color: var(--color-text); }
-  .countdown-banner[hidden] { display: none; }
-</style>
+<!-- TLC countdown banner removed 2026-11-20 (Countdown ended 11-03; W-CMO-439, W-CTO-943). -->
 
 <!-- BOOK HERO -->
 <section class="book-page-hero">
@@ -101,6 +80,16 @@ const SHOW_PRAISE = false;
     <p style="color:var(--color-text-light); font-size:0.95rem; margin-top:1.5rem;">
       ~82,000 words &middot; Paperback, Hardcover &amp; Kindle &middot; Available Now
     </p>
+    <!-- FAQ (W-CMO-439 s3) - visible answers mirror the FAQPage JSON-LD via TLC_FAQ_ITEMS. -->
+    <h3 class="tlc-faq-heading">Frequently Asked</h3>
+    <dl class="faq-list">
+      {TLC_FAQ_ITEMS.map((item) => (
+        <div class="faq-item">
+          <dt>{item.question}</dt>
+          <dd>{item.answer}</dd>
+        </div>
+      ))}
+    </dl>
   </div>
 </section>
 
@@ -191,6 +180,13 @@ const SHOW_PRAISE = false;
 <!-- Reveal + Kit form handlers now live in Base.astro (B1 fix). -->
 
 <style>
+  /* TLC FAQ (W-CTO-943), same look as the homepage FAQ */
+  .tlc-faq-heading { margin-top: 2.5rem; }
+  .faq-list { margin: 1rem auto 0; text-align: left; }
+  .faq-item { padding: 1.25rem 0; border-top: 1px solid rgba(0,0,0,0.08); }
+  .faq-item:last-child { border-bottom: 1px solid rgba(0,0,0,0.08); }
+  .faq-item dt { font-family: var(--font-heading); font-size: 1.15rem; font-weight: 600; color: var(--color-secondary); margin-bottom: 0.5rem; }
+  .faq-item dd { margin: 0; color: var(--color-text); line-height: 1.7; }
   /* Kit signup form — ported from homepage pattern (CTO review F1). Styled for dark subscribe-section. */
   .kit-form { margin-top: 1.5rem; }
   .kit-form-fields {
